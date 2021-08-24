@@ -1,0 +1,97 @@
+<section id="basic-hidden-label-form-layouts">
+  <div class="row match-height">
+    <!-- Basic Form starts -->
+    <div class="col-lg-12 col-12">
+      <form *ngIf="!loading" [formGroup]="trailerForm">
+        <div class="card">
+          <div class="card-header"></div>
+          <div class="card-content container">
+            <div class="row">
+              <div class="col-md-4" >
+                <div class="trailercard">
+                  <h5>General</h5>
+                  <label>Unit #</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="number" class="form-control mb-2" placeholder="Unit #" [formControl]="trailerForm.controls['number']"
+                      required>
+                      <div *ngIf="trailerFormSubmitted && (cf.number.errors?.required)"
+                            class="help-block mt-1 text-danger">
+                        <i class="ft-alert-circle align-middle"></i> Unit # is required
+                      </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="status">
+                      Status
+                    </label>
+                    <select id="status" formControlName="status" class="form-control" [formControl]="trailerForm.controls['status']">
+                      <option value="Pending">Pending</option>
+                      <option value="Active">Active</option>
+                      <option value="Blocked">Blocked</option>
+                    </select>
+                    <div *ngIf="trailerFormSubmitted && (cf.status.errors?.required)"
+                      class="help-block mt-1 text-danger">
+                      <i class="ft-alert-circle align-middle"></i> Status is required
+                    </div>
+                  </div>
+
+                  <label for="division">
+                    Type
+                  </label>
+                  <select id="type" formControlName="type" class="form-control" [formControl]="trailerForm.controls['type']">
+                    <option value="Type1">Flatbed Trailers</option>
+                    <option value="Type2">Covering Flatbed Trailer with a Tarp</option>
+                    <option value="Type3">Dry Vans or Enclosed Trailers</option>
+                    <option value="Type4">Refrigerated Trailers</option>
+                    <option value="Type5">Lowboy Trailers</option>
+                    <option value="Type6">Step Deck Trailers</option>
+                    <option value="Type7">Extendable Flatbed Trailers</option>
+                    <option value="Type8">Stretch Single Drop Deck Trailers</option>
+                    <option value="Type9">Removable Gooseneck Trailer (RGN)</option>
+                    <option value="Type10">Specialty Trailers</option>
+                    <option value="Type11">Trailers for Transport of Hazardous Materials</option>
+                    <option value="Type12">Medical Trailers</option>
+                    <option value="Type13">Event Marketing Trailers or Display Trailers</option>
+                    <option value="Type14">Food Services Trailers</option>
+                    <option value="Type15">Vending Trailers</option>
+                    <option value="Type16">Side-kit Trailers</option>
+                    <option value="Type17">Extendable Double Drop Trailers</option>
+                    <option value="Type18">Stretch RGN Trailers</option>
+                    <option value="Type19">Conestoga Trailer</option>
+                    <option value="Type20">Power-Only Trailers</option>
+                    <option value="Type21">Multi-Car Trailer</option>
+                  </select>
+                  <label for="truck">
+                    Truck #
+                  </label>
+                  <select id="truck" formControlName="truck" class="form-control" [formControl]="trailerForm.controls['truck']">
+                    <option value="">Unset</option>
+                    <option *ngFor="let _truck of trucks" [ngValue]="_truck.id">{{_truck.mark}}</option>
+                  </select>
+                  <label>Length, ft</label>
+                  <div class="form-group">
+                    <input type="number" formControlName="length" class="form-control mb-2" placeholder="Length, ft" [formControl]="trailerForm.controls['length']">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="row">
+              <div class="col-md-9">
+                <div *ngIf="error" class="help-block mt-1 text-danger">
+                  <i class="ft-alert-circle align-middle"></i> {{error}}
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <a class="btn btn-link" [routerLink]="['/trailers/list']">Cancel</a>
+                <a class="btn btn-primary" (click)="onSubmit()">Save</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- Basic Form ends -->
+  </div>
+</section>

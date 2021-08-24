@@ -1,0 +1,125 @@
+<div class="container-fluid container-fluid--p0 ">
+  <div class="card card--list">
+    <div class="card-body card-body--list">
+      <div class="row">
+        <div class="col-md-8">
+          <h2 class="card-title card-title--list">TRKR Clients list</h2>
+        </div>
+        <div class="col-4">
+          <div class="row">
+            <div class="col-6"></div>
+            <div class="col-6">
+              <button
+                type="button"
+                class="btn btn-primary   btn--invite"
+                (click)="inviteClient()"
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9 12C11.2091 12 13 10.2091 13 8C13 5.79086 11.2091 4 9 4C6.79086 4 5 5.79086 5 8C5 10.2091 6.79086 12 9 12Z" fill="#ffffff"/>
+                  <path d="M9 14C6.33 14 1 15.34 1 18V19C1 19.55 1.45 20 2 20H16C16.55 20 17 19.55 17 19V18C17 15.34 11.67 14 9 14Z" fill="#ffffff"/>
+                  <path d="M20 10V7H18V10H15V12H18V15H20V12H23V10H20Z" fill="#ffffff"/>
+                </svg>
+                <span class="font-size">Invite Client</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="extended">
+    <div class="row">
+      <div class="col-9">
+        <div class="card card--tableList">
+          <div class="card-header card-header--tableList">
+            <div class="row">
+              <div class="col-12 ">
+                <fieldset class="form-group position-relative has-icon-right mb-0">
+                  <input
+                    type="text"
+                    class="form-control input--h40"
+                    id="iconLeft2"
+                    placeholder="Search"
+                    [(ngModel)]="name"
+                  />
+                  <div class="form-control-position form-control-position--h40">
+                    <i class="fa fa-search"></i>
+<!--                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+<!--                      <path d="M15.5 14H14.71L14.43 13.73C15.63 12.33 16.25 10.42 15.91 8.39C15.44 5.61 13.12 3.39 10.32 3.05C6.09001 2.53 2.53002 6.09 3.05002 10.32C3.39002 13.12 5.61002 15.44 8.39002 15.91C10.42 16.25 12.33 15.63 13.73 14.43L14 14.71V15.5L18.25 19.75C18.66 20.16 19.33 20.16 19.74 19.75C20.15 19.34 20.15 18.67 19.74 18.26L15.5 14ZM9.50002 14C7.01002 14 5.00002 11.99 5.00002 9.5C5.00002 7.01 7.01002 5 9.50002 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.50002 14Z" fill="#4A5965"/>-->
+<!--                    </svg>-->
+
+                  </div>
+                </fieldset>
+              </div>
+<!--              <div class="col-4">-->
+<!--                <fieldset class="form-group position-relative has-icon-right">-->
+<!--                  <div class="form-group">-->
+<!--                    <ng-select-->
+<!--                      [items]="status"-->
+<!--                      bindLabel="name"-->
+<!--                      placeholder="Select status"-->
+<!--                      [(ngModel)]="selectedStatus"-->
+<!--                    >-->
+<!--                    </ng-select>-->
+<!--                  </div>-->
+<!--                </fieldset>-->
+<!--              </div>-->
+            </div>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="card-body   table-responsive table-responsive--p0-5">
+            <!-- table -->
+            <!--Small Tables Starts-->
+            <div class="table-responsive">
+              <table class="table table-sm m-0 table-bordered">
+                <thead class="thead-light">
+                  <tr>
+                    <th >Client Name</th>
+                    <th>MC#</th>
+                    <th>Main contact</th>
+                    <th>Address</th>
+                    <th>Phone number</th>
+                    <th>Status</th>
+                    <th>Type</th>
+                  </tr>
+                </thead>
+                <tbody
+                  class="table  table-hover"
+                  *ngFor="
+                    let company of data | companySearchPipe: name;
+                    let idx = index;
+                  "
+                >
+                  <tr (click)="onSelect(company)" style="cursor: pointer" [class.active]="company == activeCompany" >
+                    <td class="">{{ company.name }}</td>
+                    <td class="">{{ company.mc }}</td>
+                    <td class="">
+                      {{ company.contactPersonName }}
+                    </td>
+                    <td class="">
+                      {{ [company.city, company.state].join(", ") }}
+                    </td>
+                    <td class="">{{ company.mobilePhone }}</td>
+                    <td class="">
+                      {{ company.status || "Pending" }}
+                    </td>
+                    <td class="">{{ company.type }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="col-3 pl-0 pr-0">
+        <app-info *ngIf="!loading" [data]="selectedCompany"></app-info>
+
+      </div>
+    </div>
+  </section>
+  <router-outlet></router-outlet>
+</div>

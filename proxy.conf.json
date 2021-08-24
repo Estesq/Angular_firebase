@@ -1,0 +1,7 @@
+{
+    "/sendEmail": {
+        "target": "https://us-central1-test-mytrkr-1b4fc.cloudfunctions.net",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

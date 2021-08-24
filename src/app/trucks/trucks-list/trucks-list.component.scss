@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  height: 95vh;
+  width: 99vh;
+}
+
+.btn-primaryInvite {
+  color: #ffffff;
+}
+.font-padding {
+  padding-left: 5px;
+}
+.text-select-center {
+  color: #96999a;
+  width: 27vh;
+  height: 100px;
+  position: relative;
+  top: 30vh;
+  left: 12vh;
+}
+.card-body-data {
+  height: 90vh;
+}
+.muted-input {
+  background-color: #f4f4f4;
+}
+.btn-primary-manage {
+  position: relative;
+  top: 3vh;
+
+  background-color: #3383ec;
+  border: #3383ec;
+  color: #ffffff;
+}
+.white-button {
+  background-color: #ffffff;
+  color: #6a6a68;
+  border: 1px solid #bcbebe;
+  font-weight: 500;
+  width: 15vh;
+}
+.green-button {
+  background-color: #6db432;
+  color: #ffffff;
+  border: #6db432;
+  width: 15vh;
+  float: right;
+}

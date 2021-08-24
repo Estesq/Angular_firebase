@@ -1,0 +1,34 @@
+<div class="card-body">
+  <div id="map" #map></div>
+  <ul ngbNav #basicnav="ngbNav" [(activeId)]="active" class="nav-tabs">
+    <li [ngbNavItem]="1">
+      <a ngbNavLink>Load board</a>
+      <ng-template ngbNavContent>
+        <app-offers-list
+          (selectedOfferChanged)="selectedOfferChangedHandler($event)"
+          [distance]="distance"
+          [duration]="duration"
+        ></app-offers-list>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+      <a ngbNavLink>Active Offers</a>
+      <ng-template ngbNavContent>
+        Active Offers
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="3">
+      <a ngbNavLink>Truck board</a>
+      <ng-template ngbNavContent>
+        Truck board
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="4">
+      <a ngbNavLink>Timeline</a>
+      <ng-template ngbNavContent>
+        Timeline
+      </ng-template>
+    </li>
+  </ul>
+  <div [ngbNavOutlet]="basicnav" class="mt-2"></div>
+</div>

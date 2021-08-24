@@ -1,0 +1,124 @@
+<section id="basic-hidden-label-form-layouts">
+  <div class="row match-height">
+    <!-- Basic Form starts -->
+    <div class="col-lg-12 col-12" >
+      <div><button (click)="buttonClick()">Test loading</button></div>
+      <form [formGroup]="truckForm">
+        <div class="card">
+          <div class="card-header"></div>
+          <div class="card-content container">
+            <div class="row">
+              <div class="col-md-4" >
+                <div style="border: solid 1px grey; border-radius: 5px; padding: 10px;">
+                  <h5>General</h5>
+                  <label>Truck Number</label><div class="form-group"><input type="text" formControlName="number" class="form-control mb-2" placeholder="number"  [formControl]="truckForm.controls['number']"></div>
+                  <label>Type</label><div class="form-group"><input type="text" formControlName="type" class="form-control mb-2" placeholder="type"  [formControl]="truckForm.controls['type']"></div>
+                  <label>Start</label>
+                  <div class="input-group">
+                    <input
+                      class="form-control"
+                      placeholder="yyyy-mm-dd"
+                      name="dp"
+                      ngbDatepicker
+                      [formControl]="truckForm.controls['start']"
+                      formControlName="start"
+                      #d2="ngbDatepicker"
+                    >
+                    <div class="input-group-append">
+                      <div class="input-group-text" (click)="d2.toggle()">
+                        <i class="fa fa-calendar" style="cursor: pointer;"></i>
+                      </div>
+                    </div>
+                  </div>
+                  <label>End</label>
+                  <div class="input-group">
+                    <input
+                      class="form-control"
+                      placeholder="yyyy-mm-dd"
+                      name="dp3"
+                      ngbDatepicker
+                      [formControl]="truckForm.controls['end']"
+                      formControlName="end"
+                      #d3="ngbDatepicker"
+                    >
+                    <div class="input-group-append">
+                      <div class="input-group-text" (click)="d3.toggle()">
+                        <i class="fa fa-calendar" style="cursor: pointer;"></i>
+                      </div>
+                    </div>
+                  </div>
+
+                  <label for="status">
+                    Status
+                  </label>
+                  <select id="status" [formControl]="truckForm.controls['status']" formControlName="status" class="form-control">
+                    <option value="Pending">Pending</option>
+                    <option value="Active">Active</option>
+                    <option value="Blocked">Blocked</option>
+                  </select>
+
+                  <label>Division</label><div class="form-group"><input type="text" formControlName="division" class="form-control mb-2" placeholder="division"  [formControl]="truckForm.controls['division']"></div>
+                  <label>Statement</label><div class="form-group"><input type="text" formControlName="statement" class="form-control mb-2" placeholder="statement"  [formControl]="truckForm.controls['statement']"></div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div style="border: solid 1px grey; border-radius: 5px; padding: 10px;">
+                  <h5>Truck info</h5>
+                  <label>Mark</label><div class="form-group"><input type="text" formControlName="mark" class="form-control mb-2" placeholder="mark"  [formControl]="truckForm.controls['mark']"></div>
+                  <label>Model</label><div class="form-group"><input type="text" formControlName="model" class="form-control mb-2" placeholder="model"  [formControl]="truckForm.controls['model']"></div>
+                  <label>Color</label><div class="form-group"><input type="text" formControlName="color" class="form-control mb-2" placeholder="color"  [formControl]="truckForm.controls['color']"></div>
+                  <label>Year</label><div class="form-group"><input type="number" formControlName="year" class="form-control mb-2" placeholder="year"  [formControl]="truckForm.controls['year']"></div>
+                  <label>Vin</label><div class="form-group"><input type="text" formControlName="vin" class="form-control mb-2" placeholder="0"  [formControl]="truckForm.controls['vin']"></div>
+                  <label>Plates</label><div class="form-group"><input type="text" formControlName="plates" class="form-control mb-2" placeholder="plates"  [formControl]="truckForm.controls['plates']"></div>
+                  <label>Fuel card</label><div class="form-group"><input type="text" formControlName="fuelCard" class="form-control mb-2" placeholder="fuelCard"  [formControl]="truckForm.controls['fuelCard']"></div>
+                  <label>Fuel type</label><div class="form-group"><input type="text" formControlName="fuelType" class="form-control mb-2" placeholder="fuelType"  [formControl]="truckForm.controls['fuelType']"></div>
+                  <label>I-Pass</label><div class="form-group"><input type="text" formControlName="iPass" class="form-control mb-2" placeholder="iPass"  [formControl]="truckForm.controls['iPass']"></div>
+                  <label>Best pass</label><div class="form-group"><input type="text" formControlName="bestPass" class="form-control mb-2" placeholder="bestPass"  [formControl]="truckForm.controls['bestPass']"></div>
+                  <label>Engine Serial</label><div class="form-group"><input type="text" formControlName="engineSerial" class="form-control mb-2" placeholder="engineSerial"  [formControl]="truckForm.controls['engineSerial']"></div>
+                  <label>Tire size</label><div class="form-group"><input type="text" formControlName="tireSize" class="form-control mb-2" placeholder="tireSize"  [formControl]="truckForm.controls['tireSize']"></div>
+
+                  <label for="deductFuel">
+                    Deduct fuel
+                  </label>
+                  <select id="deductFuel" [formControl]="truckForm.controls['deductFuel']" formControlName="deductFuel" class="form-control">
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div style="border: solid 1px grey; border-radius: 5px; padding: 10px;">
+                  <h5>GPS/ELD</h5>
+                  <label>gpsType</label><div class="form-group"><input type="text" formControlName="gpsType" class="form-control mb-2" placeholder="gpsType"  [formControl]="truckForm.controls['gpsType']"></div>
+                  <label>gpsDeviceId</label><div class="form-group"><input type="text" formControlName="gpsDeviceId" class="form-control mb-2" placeholder="gpsDeviceId"  [formControl]="truckForm.controls['gpsDeviceId']"></div>
+                  <label>lat</label><div class="form-group"><input type="number" formControlName="lat" class="form-control mb-2" placeholder="lat"  [formControl]="truckForm.controls['lat']"></div>
+                  <label>lng</label><div class="form-group"><input type="number" formControlName="lng" class="form-control mb-2" placeholder="lng"  [formControl]="truckForm.controls['lng']"></div>
+                </div>
+                <div style="border: solid 1px grey; border-radius: 5px; padding: 10px; margin-top: 15px;">
+                  <h5>Odometr</h5>
+                  <label>Boolean  odometrState</label><div class="form-group"><input boolean type="text" formControlName="odometrState" class="form-control mb-2" placeholder="odometrState"  [formControl]="truckForm.controls['odometrState']"></div>
+                  <label>odometrDirections</label><div class="form-group"><input type="text" formControlName="odometrDirections" class="form-control mb-2" placeholder="odometrDirections"  [formControl]="truckForm.controls['odometrDirections']"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="row">
+              <div class="col-md-9">
+              </div>
+
+              <div class="col-md-3">
+                <a class="btn btn-link" >Cancel</a>
+                <a class="btn btn-primary" (click)="onSubmit()">Save</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <ng-template #loading>
+      <p class="text-center " ><i class="ft-rotate-cw spinner"></i> {{'Downloading data' | translate}}...</p>
+    </ng-template>
+    <!-- Basic Form ends -->
+  </div>
+</section>

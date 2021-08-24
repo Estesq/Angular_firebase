@@ -1,0 +1,15 @@
+{
+  "targets": {
+    "test-mytrkr-1b4fc": {
+      "hosting": {
+        "matngular": [
+          "test-mytrkr-1b4fc"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "test-mytrkr-1b4fc",
+    "test-mytrkr": "test-mytrkr-1b4fc"
+  }
+}

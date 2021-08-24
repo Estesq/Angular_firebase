@@ -1,0 +1,149 @@
+<section id="basic-hidden-label-form-layouts">
+  <div class="row match-height">
+    <!-- Basic Form starts -->
+    <div class="col-lg-12 col-12">
+      <form [formGroup]="offerForm">
+        <div class="card">
+          <div class="card-header"></div>
+          <div class="card-content container">
+            <div class="row">
+              <div class="col-md-4" >
+                <div class="offercard">
+                  <h5>Route</h5>
+                  <label>Pickup Address</label><div class="form-group"><input type="text" formControlName="pickupAddress" class="form-control mb-2" placeholder="Pickup Address" (change)="geocodPickupAddress($event)"></div>
+                  <div class="form-group">
+                    <label for="state">
+                      Pickup State
+                    </label>
+                    <select id="pickupState" formControlName="pickupState" class="form-control" > <!-- (change)="geocodPickupAddress($event)" -->
+                      <option *ngFor="let _state of stateList" [ngValue]="_state.iso">{{_state.iso}} - {{_state.name}}</option>
+                    </select>
+                  </div>
+                  <label>Pickup Zip</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="pickupZip" class="form-control mb-2" placeholder="Pickup Zip"> <!-- (change)="geocodPickupAddress($event)" -->
+                  </div>
+                  <label>Pickup Lat</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="pickupLat" class="form-control mb-2" placeholder="Pickup Lat"
+                    [ngClass]="{ 'is-invalid': offerFormSubmitted && cf.pickupLat.invalid, 'is-valid': offerFormSubmitted && !cf.pickupLat.invalid }"
+                    required>
+                    <div *ngIf="offerFormSubmitted && (cf.pickupLat.invalid || cf.pickupLat.errors?.required)"
+                      class="help-block mt-1 text-danger">
+                      <i class="ft-alert-circle align-middle"></i> This is required
+                    </div>
+                  </div>
+                  <label>Pickup Lng</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="pickupLng" class="form-control mb-2" placeholder="Pickup Lng"
+                    [ngClass]="{ 'is-invalid': offerFormSubmitted && cf.pickupLng.invalid, 'is-valid': offerFormSubmitted && !cf.pickupLng.invalid }"
+                    required>
+                    <div *ngIf="offerFormSubmitted && (cf.pickupLng.invalid || cf.pickupLng.errors?.required)"
+                      class="help-block mt-1 text-danger">
+                      <i class="ft-alert-circle align-middle"></i> This is required
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>Pickup Date</label>
+                    <div class="input-group">
+                      <input
+                        class="form-control"
+                        placeholder="yyyy-mm-dd"
+                        name="pickupDate"
+                        ngbDatepicker
+                        formControlName="pickupDate"
+                        #pickupDatepicker="ngbDatepicker"
+                      >
+                      <div class="input-group-append">
+                        <div class="input-group-text" (click)="pickupDatepicker.toggle()">
+                          <i class="fa fa-calendar" style="cursor: pointer;"></i>
+                        </div>
+                      </div>
+                      <ngb-timepicker formControlName="pickupTime"></ngb-timepicker>
+                      <div *ngIf="offerFormSubmitted && (cf.pickupDate.errors?.required)"
+                        class="help-block mt-1 text-danger">
+                        <i class="ft-alert-circle align-middle"></i> Pickup Date is required
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <label>Delivery Address</label><div class="form-group"><input type="text" formControlName="deliveryAddress" class="form-control mb-2" placeholder="Delivery Address" (change)="geocodDeliveryAddress($event)"></div>
+                  <div class="form-group">
+                    <label for="state">
+                      Delivery State
+                    </label>
+                    <select id="deliveryState" formControlName="deliveryState" class="form-control"> <!-- (change)="geocodDeliveryAddress($event)"" -->
+                      <option *ngFor="let _state of stateList" [ngValue]="_state.iso">{{_state.iso}} - {{_state.name}}</option>
+                    </select>
+                  </div>
+                  <label>Delivery Zip</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="deliveryZip" class="form-control mb-2" placeholder="Delivery Zip"> <!-- (change)="geocodDeliveryAddress($event)"" -->
+                  </div>
+                  <label>Delivery Lat</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="deliveryLat" class="form-control mb-2" placeholder="Delivery Lat"
+                    [ngClass]="{ 'is-invalid': offerFormSubmitted && cf.deliveryLat.invalid, 'is-valid': offerFormSubmitted && !cf.deliveryLat.invalid }"
+                    required>
+                    <div *ngIf="offerFormSubmitted && (cf.deliveryLat.invalid || cf.deliveryLat.errors?.required)"
+                      class="help-block mt-1 text-danger">
+                      <i class="ft-alert-circle align-middle"></i> This is required
+                    </div>
+                  </div>
+                  <label>Delivery Lng</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="deliveryLng" class="form-control mb-2" placeholder="Delivery Lng"
+                    [ngClass]="{ 'is-invalid': offerFormSubmitted && cf.deliveryLng.invalid, 'is-valid': offerFormSubmitted && !cf.deliveryLng.invalid }"
+                    required>
+                    <div *ngIf="offerFormSubmitted && (cf.deliveryLng.invalid || cf.deliveryLng.errors?.required)"
+                      class="help-block mt-1 text-danger">
+                      <i class="ft-alert-circle align-middle"></i> This is required
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label>Delivery Date</label>
+                    <div class="input-group">
+                      <input
+                        class="form-control"
+                        placeholder="yyyy-mm-dd"
+                        name="deliveryDate"
+                        ngbDatepicker
+                        formControlName="deliveryDate"
+                        #deliveryDatepicker="ngbDatepicker"
+                      >
+                      <div class="input-group-append">
+                        <div class="input-group-text" (click)="deliveryDatepicker.toggle()">
+                          <i class="fa fa-calendar" style="cursor: pointer;"></i>
+                        </div>
+                      </div>
+                      <ngb-timepicker formControlName="deliveryTime"></ngb-timepicker>
+                      <div *ngIf="offerFormSubmitted && (cf.deliveryDate.errors?.required)"
+                        class="help-block mt-1 text-danger">
+                        <i class="ft-alert-circle align-middle"></i> Delivery Date is required
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="row">
+              <div class="col-md-9">
+                <div *ngIf="error" class="help-block mt-1 text-danger">
+                  <i class="ft-alert-circle align-middle"></i> {{error}}
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <a class="btn btn-link" [routerLink]="['/offers/list']">Cancel</a>
+                <a class="btn btn-primary" (click)="onSubmit()">Save</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- Basic Form ends -->
+  </div>
+</section>

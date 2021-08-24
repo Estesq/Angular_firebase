@@ -1,0 +1,58 @@
+<section>
+  <div class="row">
+    <div class="col-md-9">
+<!--      <h2 class="card-title">Trucks List </h2>-->
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-md-6">
+                  <fieldset class="form-group position-relative has-icon-right">
+                    <input type="text" class="form-control" id="iconLeft2" placeholder="Search by driver Name" [(ngModel)]="id">
+                    <div class="form-control-position">
+                      <i class="fa fa-search"></i>
+                    </div>
+                  </fieldset>
+                </div>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table m-1 table-hover">
+                    <thead class="thead-dark " >
+                    <tr  >
+                      <th class="p-0 text-center">Full Name</th>
+                      <th class="p-0 text-center">CDL Class</th>
+                      <th class="p-0 text-center">CDL Endorsement</th>
+                      <th class="p-0 text-center">Truck #</th>
+                      <th class="p-0 text-center">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody *ngFor="let driver of data | driverSearchPipe: id | driverStatusSearchPipe: driverStatus; let idx = index">
+                    <tr (click)="selectId(driver.id)" style="hower: cursor">
+                      <td class="p-0 text-center">{{driver.firstName}} {{driver.lastName}}</td>
+                      <td class="p-0 text-center">{{driver.cdlClass}}</td>
+                      <td class="p-0 text-center">{{driver.cdlEndorsement}}</td>
+                      <td class="p-0 text-center">{{driver.truckNumber}}</td>
+                      <td>
+                        <div >
+                          <a class="btn bg-light-primary" (click)="assignDriver(driver.id)">
+                            <span *ngIf="driver.truckId">Unassign</span>
+                            <span *ngIf="!driver.truckId">Assign</span>
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

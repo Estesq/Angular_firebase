@@ -1,0 +1,62 @@
+<!--Dark table starts-->
+<section id="dark">
+<!--  <h2 class="card-title text-white">1</h2>-->
+  <div class="row">
+    <div class="col-12 p-0">
+      <div class="card">
+        <div class="card-header col-12"></div>
+        <div class="card-content col-12">
+          <div class="row">
+            <div class="col-12">
+              <button
+                class="btn btn-primary"
+                [routerLink]="['../../trailers/create']"
+              >
+                Create new trailer
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer col-12"></div>
+      </div>
+      <div class="card" *ngIf="data && trailer">
+
+        <div class="card-header" style="background-color: #4a5965">
+          <h6 style="color: white">Trailer information</h6>
+        </div>
+        <div class="card-content">
+          <div class="card-body row">
+            <div class="col-md-12 edit">
+              <a [routerLink]="['../../trailers/edit/', this.trailer.id]"
+                ><i class="ft-edit"></i
+              ></a>
+            </div>
+
+            <div class="col-md-12">
+              <h5>Trailer #{{ trailer.number }}</h5>
+            </div>
+            <div class="col-md-6"><h6>Type:</h6></div>
+            <div class="col-md-6">{{ trailer.type }}</div>
+
+
+<!--            <div class="form-group">-->
+<!--              <input type="text" formControlName="phone" class="form-control mb-3" placeholder="Phone" [formControl]="userForm.controls['phone']"-->
+<!--                     [ngClass]="{ 'is-invalid': userFormSubmitted && uf.phone.invalid, 'is-valid': userFormSubmitted && !uf.phone.invalid }"-->
+<!--                     required>-->
+<!--              <div *ngIf="userFormSubmitted && (uf.phone.invalid || uf.phone.errors?.required)"-->
+<!--                   class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i>-->
+<!--                Phone Number is required-->
+<!--              </div>-->
+<!--            </div>-->
+            <div class="col-md-6"><h6>Length:</h6></div>
+            <div class="col-md-6">{{ trailer.length }}</div>
+
+            <div class="col-md-6"><h6>Connected Truck #</h6></div>
+            <div class="col-md-6">{{ trailer.truckNumber }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Dark table Ends-->

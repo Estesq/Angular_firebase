@@ -1,0 +1,63 @@
+<div class="free__search position-relative mb-3">
+  <input type="text" class="form-control" placeholder="Search">
+  <div class="form-control-position ">
+    <i class="fa fa-search"></i>
+  </div>
+</div>
+<div class="free__head">
+  <div class="row pl-3">
+    <div class="col-3">
+      <span>Trailer #</span>
+    </div>
+    <div class="col-2">
+      <span>Type</span>
+    </div>
+    <div class="col-2">
+      <span>Carry Weight</span>
+    </div>
+    <div class="col-2">
+      <span>Distance</span>
+    </div>
+    <div class="col-2">
+      <span>Length</span>
+    </div>
+    <div class="col-1">
+      <span></span>
+    </div>
+  </div>
+</div>
+<div >
+
+<div class="free__item mb-1 example-box" *ngFor="let trailer of trailers">
+      <div class="row pl-3">
+        <div class="col-3 d-flex align-items-center">
+          <img src="../../../assets/img/svg/icon_trailer.svg" alt="">
+          <span class="ml-2">{{trailer.id}}</span>
+        </div>
+        <div class="col-2 d-flex align-items-center">
+          <span>{{trailer.type}}</span>
+        </div>
+        <div class="col-2 d-flex align-items-center">
+          <span>{{trailer.weight}}</span>
+        </div>
+        <div class="col-2 d-flex align-items-center">
+          <span>{{trailer.distance}}</span>
+        </div>
+        <div class="col-1 d-flex align-items-center">
+          <span>{{trailer.length}}</span>
+        </div>
+        <div class="col-2 d-flex justify-content-end align-items-center pr-4">
+          <button class="free__item-back">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.0834 6.41594H4.56753L7.4142 3.56927C7.6417 3.34177 7.6417 2.96844 7.4142 2.74094C7.1867 2.51344 6.8192 2.51344 6.5917 2.74094L2.74753 6.5851C2.52003 6.8126 2.52003 7.1801 2.74753 7.4076L6.5917 11.2518C6.8192 11.4793 7.1867 11.4793 7.4142 11.2518C7.6417 11.0243 7.6417 10.6568 7.4142 10.4293L4.56753 7.5826H11.0834C11.4042 7.5826 11.6667 7.32011 11.6667 6.99927C11.6667 6.67844 11.4042 6.41594 11.0834 6.41594Z" fill="white"/>
+            </svg>
+          </button>
+          <button class="free__item-drag">
+            <img src="../../../assets/img/svg/icon_drag.svg" alt="">
+          </button>
+        </div>
+      </div>
+    </div >
+
+
+

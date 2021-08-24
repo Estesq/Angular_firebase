@@ -1,0 +1,122 @@
+<!--Dark table starts-->
+<section id="dark">
+  <div class="row">
+    <div class="col-12">
+      <div class="card" >
+        <div class="card-header" style="background-color: #4A5965">
+          <h6 style="color: white">
+            User details
+          </h6>
+        </div>
+        <div class="card-content">
+          <form [formGroup]="userForm">
+            <div class="card-body row">
+              <div class="col-12 m-t-10">
+                <label>
+                  ID
+                </label>
+                <div class="form-group">
+                  <input type="text" formControlName="id" class="form-control mb-2" placeholder="Id" disabled>
+                </div>
+              </div>
+              <div class="col-12">
+                <label>
+                  First Name
+                </label>
+                <div class="form-group">
+                  <input type="text" formControlName="firstName" class="form-control mb-2" placeholder="First Name"
+                         [ngClass]="{ 'is-invalid': userFormSubmitted && uf.firstName.invalid, 'is-valid': userFormSubmitted && !uf.firstName.invalid }"
+                         required>
+                  <div *ngIf="userFormSubmitted && (uf.firstName.invalid || uf.firstName.errors?.required)"
+                       class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i>
+                    First Name is required
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <label>
+                  Last Name
+                </label>
+                <div class="form-group">
+                  <input type="text" formControlName="lastName" class="form-control mb-2" placeholder="Last Name"
+                         [ngClass]="{ 'is-invalid': userFormSubmitted && uf.lastName.invalid, 'is-valid': userFormSubmitted && !uf.lastName.invalid }"
+                         required>
+                  <div *ngIf="userFormSubmitted && (uf.lastName.invalid || uf.lastName.errors?.required)"
+                       class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i>
+                    Last Name is required
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <label>
+                  Phone Number
+                </label>
+                <div class="form-group">
+                  <input type="text" formControlName="phone" class="form-control mb-2" placeholder="Last Name"
+                         [ngClass]="{ 'is-invalid': userFormSubmitted && uf.phone.invalid, 'is-valid': userFormSubmitted && !uf.phone.invalid }"
+                         required>
+                  <div *ngIf="userFormSubmitted && (uf.phone.invalid || uf.phone.errors?.required)"
+                       class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i>
+                    Phone Number is required
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <label>
+                  Email
+                </label>
+                <div class="form-group">
+                  <input type="email" formControlName="email" class="form-control mb-2" placeholder="Email"
+                         [ngClass]="{ 'is-invalid': userFormSubmitted && uf.email.invalid, 'is-valid': userFormSubmitted && !uf.email.invalid }"
+                         required>
+                  <div *ngIf="userFormSubmitted && (uf.email.errors?.required)"
+                       class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i> Email is
+                    required</div>
+                  <div *ngIf="userFormSubmitted && uf.email.errors?.email" class="help-block mt-1 text-danger"> <i
+                    class="ft-alert-circle align-middle"></i> Email must be a valid email address</div>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label>
+                  User role
+                </label>
+                <div class="form-group">
+                  <select formControlName="role" class="form-control" aria-label="Default select example" required>
+                    <option value="User">User</option>
+                    <option value="admin">Admin</option>
+                    <option value="company">Company</option>
+                    <option value="Administrator">Administrator</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12">
+                <label>
+                  User department
+                </label>
+                <div class="form-group">
+                  <select formControlName="department" class="form-control" aria-label="Default select example" required>
+                    <option value="Management">Management</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-12">
+                <hr/>
+                <div class="d-flex justify-content-between flex-sm-row flex-column"  *ngIf="resetPasswordMessage == ''">
+                  <button class="btn btn-outline-warning btn-warning" (click)="data=null">Cancel</button>
+                  <a class="btn btn-outline-primary primary" (click)="changePassword()">Change Password</a>
+                  <a class="btn btn-outline-primary primary" (click)="resetPassword()">Reset Password</a>
+                  <button class="btn btn-outline-success btn-success" (click)="onSubmit()">Save</button>
+                </div>
+                <ngb-alert type="light-danger" class="mb-2" *ngIf="resetPasswordMessage != ''" (close)="resetPasswordMessage = ''">
+                  <p class="mb-0">{{resetPasswordMessage}}</p>
+                </ngb-alert>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Dark table Ends-->

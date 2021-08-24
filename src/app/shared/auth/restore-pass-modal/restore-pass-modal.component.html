@@ -1,0 +1,53 @@
+<div class="modal-header">
+  <h4 class="modal-title">Change your password</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    x
+  </button>
+</div>
+<form [formGroup]="changePass" >
+  <div class="modal-body taskboard-modal">
+    <label>
+      Old password
+    </label>
+<!--    <div class="form-group" [formGroup]="changePass">-->
+<!--      <input type="text" [formControl]="changePass.controls['oldPass']" formControlName="oldPass" class="form-control mb-2" placeholder="Old password" required="required">-->
+<!--    </div>-->
+    <div class="form-group">
+      <input type="text" formControlName="oldPass" class="form-control mb-2" placeholder="First Name"
+             [ngClass]="{ 'is-invalid': submitted && cp.oldPass.invalid, 'is-valid': submitted && !cp.oldPass.invalid }"
+             required>
+      <div *ngIf="submitted && (cp.oldPass.invalid || cp.oldPass.errors?.required)"
+           class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i>
+        Old password is required
+      </div>
+    </div>
+    <label>
+      New password
+    </label>
+    <div class="form-group" [formGroup]="changePass">
+      <input type="text" [formControl]="changePass.controls['newPass']" formControlName="newPass" class="form-control mb-2" placeholder="New password" required>
+      <div *ngIf="submitted && (cp.newPass.invalid || cp.newPass.errors?.required)"
+           class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i>
+        New password is required
+      </div>
+    </div>
+    <label>
+      Confirm new password
+    </label>
+    <div class="form-group" [formGroup]="changePass">
+      <input type="text" [formControl]="changePass.controls['confirmPass']" formControlName="confirmPass" class="form-control mb-2" placeholder="Confirm password" required>
+    </div>
+    <div *ngIf="changePass.hasError('notSame')">
+      <span class="badge badge-danger">
+        Passwords does not match.
+      </span>
+    </div>
+  </div>
+  <div class="modal-footer taskboard-modal-footer">
+    <a class="btn btn-outline-primary primary" (click)="resetPassword()">Reset Password</a>
+
+    <button class="btn btn-outline-success success" (click)="onSubmit()" [disabled]="submitted">
+      Change password
+    </button>
+  </div>
+</form>

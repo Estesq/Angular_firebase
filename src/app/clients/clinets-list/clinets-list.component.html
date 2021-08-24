@@ -1,0 +1,76 @@
+<section id="basic-hidden-label-form-layouts">
+  <div class="row match-height">
+    <!-- Basic Form starts -->
+    <div class="col-lg-9 col-12">
+        <div class="card">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-md-3">
+                <label class="status-label">Status</label>
+              </div>
+              <div class="col-md-9">
+                <div class="form-group status custom-switch custom-control-inline mb-1 mb-xl-0">
+                  <div class="custom-control custom-radio m-0">
+                    <input type="radio" formControlName="status" #status required id="customRadioInline2"  name="status" class="custom-control-input" value="Active" disabled>
+                    <label class="custom-control-label" for="customRadioInline2">Active</label>
+                  </div>
+                  <div class="custom-control custom-radio m-0">
+                    <input type="radio" formControlName="status" #status required id="customRadioInline3" checked name="status" class="custom-control-input" value="Blocked" disabled>
+                    <label class="custom-control-label" for="customRadioInline3">Blocked</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table m-1 table-hover" *ngIf="loading; else loading">
+                  <thead class="thead-dark " >
+                  <tr  >
+                    <!--                      <th class="p-0 text-center">#</th>-->
+                    <th class="p-0 text-center">id</th>
+                    <th class="p-0 text-center">fullName</th>
+                    <th class="p-0 text-center">department</th>
+                    <th class="p-0 text-center">cellPhone</th>
+                    <th class="p-0 text-center">mobilePhone</th>
+                    <th class="p-0 text-center">email</th>
+                    <th class="p-0 text-center">role</th>
+                    <th class="p-0 text-center">status</th>
+                  </tr>
+                  </thead>
+                  <tbody *ngFor="let companyUser of companyUsers | companySearchPipe : name; let idx = index">
+                    <tr (click)="selectId(companyUser.id)" style="cursor: pointer">
+                      <!--                        <td class="p-0 text-center">{{company.id}}</td>-->
+                      <td class="p-0 text-center">{{companyUser.id}}</td>
+                      <td class="p-0 text-center">{{companyUser.fullName}}</td>
+                      <td class="p-0 text-center">{{companyUser.department}}</td>
+                      <td class="p-0 text-center">{{companyUser.cellPhone}}</td>
+                      <td class="p-0 text-center">{{companyUser.mobilePhone}}</td>
+                      <td class="p-0 text-center">{{companyUser.email}}</td>
+                      <td class="p-0 text-center">{{companyUser.role}}</td>
+                      <td class="p-0 text-center">{{companyUser.status}}</td>
+                      <td>
+                        <div >
+                          <a class="danger" (click)="deleteUser(companyUser.id)">
+                            <i class="ft-trash font-medium-3"></i>
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <ng-template #loading>
+                  <p class="text-center " ><i class="ft-rotate-cw spinner"></i> {{'Downloading data' | translate}}...</p>
+                </ng-template>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+    <div class="col-md-3">
+      <app-client-info [data]="selectedId" ></app-client-info>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,114 @@
+<div class="modal-header">
+  <h4 class="modal-title">Add new posting card</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    x
+  </button>
+</div>
+<form [formGroup]="postingCardForm" >
+  <div class="modal-body taskboard-modal">
+    <label for="offers">
+      Offer
+    </label>
+    <select id="offers" [formControl]="postingCardForm.controls['status']" formControlName="status" class="form-control"
+    >
+      <option *ngFor="let offer of offers" [value]="offer.id">{{offer.id}}
+      </option>
+    </select>
+
+    <label for="status">
+      Status
+    </label>
+    <select id="status" [formControl]="postingCardForm.controls['status']" formControlName="status" class="form-control">
+      <option value="posted">Posted</option>
+      <option value="unposted">Unposted</option>
+    </select>
+    <label>Start</label>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" >Year</span>
+        </div>
+        <input type="number" class="form-control"
+               [formControl]="postingCardForm.controls['yS']"
+               formControlName="yS"
+               placeholder="YYYY" aria-describedby="basic-addon1">
+        <div class="input-group-prepend">
+          <span class="input-group-text" >MM</span>
+        </div>
+        <input type="number" class="form-control" placeholder="mm" aria-describedby="basic-addon1"
+               [formControl]="postingCardForm.controls['mS']"
+               formControlName="mS"
+        >
+        <div class="input-group-prepend">
+          <span class="input-group-text" >DD</span>
+        </div>
+        <input type="number" class="form-control" placeholder="Addon to Left" aria-describedby="basic-addon1"
+               [formControl]="postingCardForm.controls['dS']"
+               formControlName="dS"
+        >
+    </div>
+    <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" >HH</span>
+        </div>
+        <input type="number" class="form-control" placeholder="Addon to Left" aria-describedby="basic-addon1"
+               [formControl]="postingCardForm.controls['hhS']"
+               formControlName="hhS"
+        >
+        <div class="input-group-prepend">
+          <span class="input-group-text" >mm</span>
+        </div>
+        <input type="number" class="form-control" placeholder="Addon to Left" aria-describedby="basic-addon1"
+               [formControl]="postingCardForm.controls['mmS']"
+               formControlName="mmS"
+        >
+      </div>
+
+    <label>End</label>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" >Year</span>
+      </div>
+      <input type="number" class="form-control"
+             [formControl]="postingCardForm.controls['yE']"
+             formControlName="yE"
+             placeholder="YYYY" aria-describedby="basic-addon1">
+      <div class="input-group-prepend">
+        <span class="input-group-text" >MM</span>
+      </div>
+      <input type="number" class="form-control" placeholder="mm" aria-describedby="basic-addon1"
+             [formControl]="postingCardForm.controls['mE']"
+             formControlName="mE"
+      >
+      <div class="input-group-prepend">
+        <span class="input-group-text" >DD</span>
+      </div>
+      <input type="number" class="form-control" placeholder="Addon to Left" aria-describedby="basic-addon1"
+             [formControl]="postingCardForm.controls['dE']"
+             formControlName="dE"
+      >
+    </div>
+    <div class="input-group">
+      <div class="input-group-prepend">
+        <span class="input-group-text" >HH</span>
+      </div>
+      <input type="number" class="form-control" placeholder="Addon to Left" aria-describedby="basic-addon1"
+             [formControl]="postingCardForm.controls['hhE']"
+             formControlName="hhE"
+      >
+      <div class="input-group-prepend">
+        <span class="input-group-text" >mm</span>
+      </div>
+      <input type="number" class="form-control" placeholder="Addon to Left" aria-describedby="basic-addon1"
+             [formControl]="postingCardForm.controls['mmE']"
+             formControlName="mmE"
+      >
+    </div>
+
+
+  </div>
+  <div class="modal-footer taskboard-modal-footer">
+    <button class="btn btn-primary" (click)="onSubmit()">
+      Save
+    </button>
+  </div>
+</form>

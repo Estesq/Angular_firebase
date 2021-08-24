@@ -1,0 +1,509 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-8">
+        <h2 class="card-title">Client name</h2>
+      </div>
+      <div class="col-4">
+        <div class="row">
+          <div class="col-6"></div>
+          <div class="col-6">
+            <button type="button" class="btn btn-primary mr-1 mb-1">
+              <span class="font-size">Invite User</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--  -->
+
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-content">
+        <div class="card-body">
+          <!-- Nav-tabs -->
+          <ul
+            ngbNav
+            #nav="ngbNav"
+            [activeId]="1"
+            class="nav-tabs justify-content-left"
+          >
+            <li [ngbNavItem]="1">
+              <a ngbNavLink class="nav-link d-flex align-items-center">
+                <span class="d-none d-sm-block">Client Info</span>
+              </a>
+              <ng-template ngbNavContent>
+                <!-- client info -->
+                <div class="card">
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="row">
+                          <div class="col-8">
+                            <fieldset
+                              class="
+                                form-group
+                                position-relative
+                                has-icon-right
+                              "
+                            >
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="iconLeft2"
+                                placeholder="Search by company name"
+                                [(ngModel)]="name"
+                              />
+                              <div class="form-control-position">
+                                <i class="fa fa-search"></i>
+                              </div>
+                            </fieldset>
+                          </div>
+                          <div class="col-4">
+                            <fieldset
+                              class="
+                                form-group
+                                position-relative
+                                has-icon-right
+                              "
+                            >
+                              <div class="form-group">
+                                <ng-select
+                                  [items]="status"
+                                  bindLabel="name"
+                                  placeholder="Select status"
+                                  [(ngModel)]="selectedStatus"
+                                >
+                                </ng-select>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12">
+                            <fieldset class="form-group">
+                              <span> Street 1:</span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="basicInput"
+                              />
+                            </fieldset>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12">
+                            <fieldset class="form-group">
+                              <span> Street 1:</span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="basicInput"
+                              />
+                            </fieldset>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-8">
+                            <fieldset class="form-group">
+                              <span> City state:</span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="basicInput"
+                              />
+                            </fieldset>
+                          </div>
+                          <div class="col-4">
+                            <fieldset class="form-group">
+                              <span> Zip:</span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="basicInput"
+                              />
+                            </fieldset>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="row">
+                          <div class="col-6">
+                            <fieldset class="form-group">
+                              <span> MC/FF#:</span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="basicInput"
+                              />
+                            </fieldset>
+                          </div>
+                          <div class="col-6">
+                            <fieldset class="form-group">
+                              <span> FEIN/SSN:</span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="basicInput"
+                              />
+                            </fieldset>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-6">
+                            <fieldset class="form-group">
+                              <span> US DOT::</span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="basicInput"
+                              />
+                            </fieldset>
+                          </div>
+                          <div class="col-6">
+                            <fieldset class="form-group">
+                              <span> SCAC:</span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="basicInput"
+                              />
+                            </fieldset>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-12">
+                            <div class="row">
+                              <label for="basic-form-9">Comments:</label>
+                              <textarea
+                                id="basic-form-9"
+                                rows="4"
+                                class="form-control"
+                                name="comment"
+                              ></textarea>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="row">
+                          <div class="col-6">
+                            <fieldset class="form-group">
+                              <span> Contact name:</span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="basicInput"
+                              />
+                            </fieldset>
+                          </div>
+                          <div class="col-6">
+                            <fieldset class="form-group">
+                              <span> Position:</span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="basicInput"
+                              />
+                            </fieldset>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-6">
+                            <fieldset class="form-group">
+                              <span> Phone:</span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="basicInput"
+                              />
+                            </fieldset>
+                          </div>
+                          <div class="col-6">
+                            <fieldset class="form-group">
+                              <span> Cell phone:</span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="basicInput"
+                              />
+                            </fieldset>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-6">
+                            <fieldset class="form-group">
+                              <span> Email:</span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="basicInput"
+                              />
+                            </fieldset>
+                          </div>
+                          <div class="col-6">
+                            <fieldset class="form-group">
+                              <span> Fax:</span>
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="basicInput"
+                              />
+                            </fieldset>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- client info ends -->
+              </ng-template>
+            </li>
+            <li [ngbNavItem]="2">
+              <a ngbNavLink class="nav-link d-flex align-items-center">
+                <span class="d-none d-sm-block">Users</span>
+              </a>
+              <ng-template ngbNavContent>
+                <!-- Users starts -->
+                <div class="row">
+                  <div class="col-8">
+                    <div class="card">
+                      <div class="card-header">
+                        <div class="row">
+                          <div class="col-8">
+                            <fieldset
+                              class="
+                                form-group
+                                position-relative
+                                has-icon-right
+                              "
+                            >
+                              <input
+                                type="text"
+                                class="form-control"
+                                id="iconLeft2"
+                                placeholder="Search by company name"
+                                [(ngModel)]="name"
+                              />
+                              <div class="form-control-position">
+                                <i class="fa fa-search"></i>
+                              </div>
+                            </fieldset>
+                          </div>
+                          <div class="col-4">
+                            <fieldset
+                              class="
+                                form-group
+                                position-relative
+                                has-icon-right
+                              "
+                            >
+                              <div class="form-group">
+                                <ng-select
+                                  [items]="status"
+                                  bindLabel="name"
+                                  placeholder="Select status"
+                                  [(ngModel)]="selectedStatus"
+                                >
+                                </ng-select>
+                              </div>
+                            </fieldset>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="card-content">
+                        <div class="card-body table-responsive">
+                          <div class="row">
+                            <div class="col-12">
+                              <div class="table-responsive">
+                                <table
+                                  class="table table-sm m-0 table-bordered"
+                                >
+                                  <thead class="thead-light">
+                                    <tr>
+                                      <th>Name</th>
+                                      <th>Phone number</th>
+                                      <th>Group</th>
+                                      <th>Role</th>
+                                      <th>Status</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody>
+                                    <tr>
+                                      <th>Leslie Alexander</th>
+                                      <td>(406) 555-0120</td>
+                                      <td>Dispatch</td>
+                                      <td>Administrator</td>
+                                      <td>Active</td>
+                                    </tr>
+                                    <tr>
+                                      <th>Albert Flores</th>
+                                      <td>(603) 555-0123</td>
+                                      <td>Accounting</td>
+                                      <td>Manager</td>
+                                      <td>Active</td>
+                                    </tr>
+                                    <tr>
+                                      <th>Guy Hawkins</th>
+                                      <td>(303) 555-0105</td>
+                                      <td>Safety</td>
+                                      <td>Manager</td>
+                                      <td>Inactive</td>
+                                    </tr>
+                                    <tr>
+                                      <th>Marvin McKinney</th>
+                                      <td>(205) 555-0100</td>
+                                      <td>Accounting</td>
+                                      <td>User</td>
+                                      <td>Active</td>
+                                    </tr>
+                                    <tr>
+                                      <th>Jerome Bell</th>
+                                      <td>(907) 555-0101</td>
+                                      <td>Safety</td>
+                                      <td>User</td>
+                                      <td>Inactive</td>
+                                    </tr>
+                                  </tbody>
+                                </table>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-4">
+                    <div class="card">
+                      <div class="card-content">
+                        <div class="card-body table-responsive">
+                          <div class="row">
+                            <div class="col-12">
+                              <fieldset class="form-group">
+                                <span> First name:</span>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="basicInput"
+                                />
+                              </fieldset>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-12">
+                              <fieldset class="form-group">
+                                <span> Last name:</span>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="basicInput"
+                                />
+                              </fieldset>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-12">
+                              <fieldset class="form-group">
+                                <span> Email:</span>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="basicInput"
+                                />
+                              </fieldset>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-12">
+                              <fieldset class="form-group">
+                                <span>Phone number:</span>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="basicInput"
+                                />
+                              </fieldset>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-12">
+                              <fieldset class="form-group">
+                                <span> Group:</span>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="basicInput"
+                                />
+                              </fieldset>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-12">
+                              <fieldset class="form-group">
+                                <span> Role:</span>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="basicInput"
+                                />
+                              </fieldset>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-12">
+                              <fieldset class="form-group">
+                                <span> Status:</span>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  id="basicInput"
+                                />
+                              </fieldset>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-6"></div>
+                            <div class="col-3">
+                              <button
+                                type="button"
+                                class="btn btn-outline-primary mr-1 mb-1"
+                                (click)="activeModal.dismiss('Cross click')"
+                              >
+                                Cancel
+                              </button>
+                            </div>
+
+                            <div class="col-3">
+                              <button
+                                class="btn btn-primary btn-save font-size"
+                              >
+                                Save
+                              </button>
+                            </div>
+                          </div>
+                          <ng-template #noData>
+                            <p class="text-center">Please select the row</p>
+                          </ng-template>
+                          <!-- Select the client from the table
+                      to view or edit its information -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Users ends -->
+              </ng-template>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div [ngbNavOutlet]="nav"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

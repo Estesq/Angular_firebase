@@ -1,0 +1,477 @@
+<div>
+  <div class="card-content">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-3">
+          <h5>
+            Upload company data first
+          </h5>
+        </div>
+        <div class="col-md-3">
+          <input type="file" name="File Upload"
+                 accept=".csv"
+                 (change)="uploadCompaniesCsv($event)"
+          />
+        </div>
+        <div class="col-md-3">
+          <button *ngIf="companies.length > 1" (click)="uploadCompaniesCsvToDb()">UPLOAD to DB</button>
+          <button *ngIf="companies.length > 1" (click)="updateCompaniesFromCsv()">UPDATE to DB</button>
+          <button class="btn btn-outline-danger btn-danger" (click)="deleteCompaniesFromDb()">Delete ALL companies</button>
+        </div>
+        <div class="col-md-3">
+          <button (click)="downloadCompaniesFromDb()">Download all companies from DB</button>
+        </div>
+        <div class="col-md-12">
+          <p>
+            <ngb-progressbar type="success" [value]="companiesUploadProgress"></ngb-progressbar>
+          </p>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table m-1 table-hover">
+          <thead class="thead-dark " >
+            <tr>
+              <th class="p-0 text-center">Name</th>
+              <th class="p-0 text-center">Address</th>
+              <th class="p-0 text-center">City</th>
+              <th class="p-0 text-center">State</th>
+              <th class="p-0 text-center">Zip</th>
+              <th class="p-0 text-center">Mc</th>
+              <th class="p-0 text-center">Dot</th>
+              <th class="p-0 text-center">ContactPersonName</th>
+              <th class="p-0 text-center">ContactPersonPosition</th>
+              <th class="p-0 text-center">MobilePhone</th>
+              <th class="p-0 text-center">Email</th>
+              <th class="p-0 text-center">CellPhone</th>
+              <th class="p-0 text-center">Status</th>
+              <th class="p-0 text-center">Ssn</th>
+              <th class="p-0 text-center">Scas</th>
+              <th class="p-0 text-center">Comments</th>
+              <th class="p-0 text-center">Fax</th>
+              <th class="p-0 text-center">Address2</th>
+              <th class="p-0 text-center">Type</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let company of companies; let idx = index">
+            <tr >
+              <td class="p-0 text-center">{{company.name}}</td>
+              <td class="p-0 text-center">{{company.address}}</td>
+              <td class="p-0 text-center">{{company.city}}</td>
+              <td class="p-0 text-center">{{company.state}}</td>
+              <td class="p-0 text-center">{{company.zip}}</td>
+              <td class="p-0 text-center">{{company.mc}}</td>
+              <td class="p-0 text-center">{{company.dot}}</td>
+              <td class="p-0 text-center">{{company.contactPersonName}}</td>
+              <td class="p-0 text-center">{{company.contactPersonPosition}}</td>
+              <td class="p-0 text-center">{{company.mobilePhone}}</td>
+              <td class="p-0 text-center">{{company.email}}</td>
+              <td class="p-0 text-center">{{company.cellPhone}}</td>
+              <td class="p-0 text-center">{{company.status}}</td>
+              <td class="p-0 text-center">{{company.ssn}}</td>
+              <td class="p-0 text-center">{{company.scas}}</td>
+              <td class="p-0 text-center">{{company.comments}}</td>
+              <td class="p-0 text-center">{{company.fax}}</td>
+              <td class="p-0 text-center">{{company.address2}}</td>
+              <td class="p-0 text-center">{{company.type}}</td>
+            </tr>
+          </tbody>
+        </table>~
+      </div>
+    </div>
+  </div>
+  <div class="card-content">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-3">
+          <h5>
+            Upload trucks second <span *ngIf="trucks.length > 1">{{trucks.length}}</span>
+          </h5>
+        </div>
+        <div class="col-md-3">
+          <input type="file" name="File Upload"
+                 (change)="uploadTrucksCsv($event)"
+                 accept=".csv"
+          />
+        </div>
+        <div class="col-md-3">
+          <button *ngIf="trucks.length > 1" (click)="uploadTrucksCsvToDb()">All trucks checked upload to DB</button>
+          <button class="btn btn-outline-danger btn-danger" (click)="deleteTrucksFromDb()">Delete ALL trucks</button>
+        </div>
+        <div class="col-md-3">
+          <button (click)="downloadTrucksFromDb()">Download all trucks from DB</button>
+        </div>
+        <div class="col-md-12">
+          <p>
+            <ngb-progressbar type="success" [value]="trucksUploadProgress"></ngb-progressbar>
+          </p>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table m-1 table-hover">
+          <thead class="thead-dark " >
+          <tr>
+            <th class="p-0 text-center">id</th>
+            <th class="p-0 text-center">type</th>
+            <th class="p-0 text-center">start</th>
+            <th class="p-0 text-center">end</th>
+            <th class="p-0 text-center">status</th>
+            <th class="p-0 text-center">division</th>
+            <th class="p-0 text-center">statement</th>
+            <th class="p-0 text-center">mark</th>
+            <th class="p-0 text-center">model</th>
+            <th class="p-0 text-center">color</th>
+            <th class="p-0 text-center">year</th>
+            <th class="p-0 text-center">vin</th>
+            <th class="p-0 text-center">plates</th>
+            <th class="p-0 text-center">fuelCard</th>
+            <th class="p-0 text-center">fuelType</th>
+            <th class="p-0 text-center">iPass</th>
+            <th class="p-0 text-center">bestPass</th>
+            <th class="p-0 text-center">engineSerial</th>
+            <th class="p-0 text-center">tireSize</th>
+            <th class="p-0 text-center">deductTools</th>
+            <th class="p-0 text-center">deductFuel</th>
+            <th class="p-0 text-center">odometrState</th>
+            <th class="p-0 text-center">odometrDirections</th>
+            <th class="p-0 text-center">dotInspectionExpiration</th>
+            <th class="p-0 text-center">platesExpirationDate</th>
+            <th class="p-0 text-center">insuranceExpirationDate</th>
+            <th class="p-0 text-center">insuranceValue</th>
+            <th class="p-0 text-center">escrowStartingBalance</th>
+            <th class="p-0 text-center">escrowAccauntBalance</th>
+            <th class="p-0 text-center">iftaExpirationDate</th>
+            <th class="p-0 text-center">hutNyPermit</th>
+            <th class="p-0 text-center">hutGrossWeight</th>
+            <th class="p-0 text-center">hutUnloadedWeight</th>
+            <th class="p-0 text-center">hutOfAxles</th>
+            <th class="p-0 text-center">dispatchId</th>
+            <th class="p-0 text-center">dispatchGroup</th>
+            <th class="p-0 text-center">gpsType</th>
+            <th class="p-0 text-center">gpsDeviceId</th>
+            <th class="p-0 text-center">companyId</th>
+            <th class="p-0 text-center">lat</th>
+            <th class="p-0 text-center">lng</th>
+            <th class="p-0 text-center">number</th>
+          </tr>
+          </thead>
+          <tbody *ngFor="let truck of trucks; let idx = index">
+          <tr >
+            <td class="p-0 text-center">{{truck.id}}</td>
+            <td class="p-0 text-center">{{truck.type}}</td>
+            <td class="p-0 text-center">{{truck.start}}</td>
+            <td class="p-0 text-center">{{truck.end}}</td>
+            <td class="p-0 text-center">{{truck.status}}</td>
+            <td class="p-0 text-center">{{truck.division}}</td>
+            <td class="p-0 text-center">{{truck.statement}}</td>
+            <td class="p-0 text-center">{{truck.mark}}</td>
+            <td class="p-0 text-center">{{truck.model}}</td>
+            <td class="p-0 text-center">{{truck.color}}</td>
+            <td class="p-0 text-center">{{truck.year}}</td>
+            <td class="p-0 text-center">{{truck.vin}}</td>
+            <td class="p-0 text-center">{{truck.plates}}</td>
+            <td class="p-0 text-center">{{truck.fuelCard}}</td>
+            <td class="p-0 text-center">{{truck.fuelType}}</td>
+            <td class="p-0 text-center">{{truck.iPass}}</td>
+            <td class="p-0 text-center">{{truck.bestPass}}</td>
+            <td class="p-0 text-center">{{truck.engineSerial}}</td>
+            <td class="p-0 text-center">{{truck.tireSize}}</td>
+            <td class="p-0 text-center">{{truck.deductTools}}</td>
+            <td class="p-0 text-center">{{truck.deductFuel}}</td>
+            <td class="p-0 text-center">{{truck.odometrState}}</td>
+            <td class="p-0 text-center">{{truck.odometrDirections}}</td>
+            <td class="p-0 text-center">{{truck.dotInspectionExpiration}}</td>
+            <td class="p-0 text-center">{{truck.platesExpirationDate}}</td>
+            <td class="p-0 text-center">{{truck.insuranceExpirationDate}}</td>
+            <td class="p-0 text-center">{{truck.insuranceValue}}</td>
+            <td class="p-0 text-center">{{truck.escrowStartingBalance}}</td>
+            <td class="p-0 text-center">{{truck.escrowAccauntBalance}}</td>
+            <td class="p-0 text-center">{{truck.iftaExpirationDate}}</td>
+            <td class="p-0 text-center">{{truck.hutNyPermit}}</td>
+            <td class="p-0 text-center">{{truck.hutGrossWeight}}}</td>
+            <td class="p-0 text-center">{{truck.hutUnloadedWeight}}</td>
+            <td class="p-0 text-center">{{truck.hutOfAxles}}</td>
+            <td class="p-0 text-center">{{truck.dispatchId}}</td>
+            <td class="p-0 text-center">{{truck.dispatchGroup}}</td>
+            <td class="p-0 text-center">{{truck.gpsType}}</td>
+            <td class="p-0 text-center">{{truck.gpsDeviceId}}</td>
+            <td class="p-0 text-center">{{truck.companyId}}</td>
+            <td class="p-0 text-center">{{truck.lat}}</td>
+            <td class="p-0 text-center">{{truck.lng}}</td>
+            <td class="p-0 text-center">{{truck.number}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="card-content">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-3">
+          <h5>
+            Upload trailers third
+          </h5>
+        </div>
+        <div class="col-md-3">
+          <input type="file" name="File Upload"
+                 accept=".csv"
+                 (change)="uploadTrailersCsv($event)"
+          />
+        </div>
+        <div class="col-md-3">
+          <button *ngIf="trailers.length > 1" (click)="uploadTrailersCsvToDb()">All trailers checked upload to DB</button>
+        </div>
+        <div class="col-md-3">
+          <button (click)="downloadTrailersFromDb()">Download all trailers from DB</button>
+          <button class="btn btn-outline-danger btn-danger" (click)="deleteTrailersFromDb()">Delete ALL Trailers</button>
+        </div>
+        <div class="col-md-12">
+          <p>
+            <ngb-progressbar type="success" [value]="trailersUploadProgress"></ngb-progressbar>
+          </p>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table m-1 table-hover">
+          <thead class="thead-dark " >
+          <tr>
+            <th class="p-0 text-center">id</th>
+            <th class="p-0 text-center">truckId</th>
+            <th class="p-0 text-center">companyId</th>
+            <th class="p-0 text-center">type</th>
+            <th class="p-0 text-center">length</th>
+            <th class="p-0 text-center">carryWeight</th>
+            <th class="p-0 text-center">status</th>
+            <th class="p-0 text-center">isActive</th>
+            <th class="p-0 text-center">location</th>
+            <th class="p-0 text-center">truckNumber</th>
+            <th class="p-0 text-center">number</th>
+          </tr>
+          </thead>
+          <tbody *ngFor="let trailer of trailers; let idx = index">
+          <tr >
+            <td class="p-0 text-center">{{trailer.id}}</td>
+            <td class="p-0 text-center">{{trailer.truckId}}</td>
+            <td class="p-0 text-center">{{trailer.companyId}}</td>
+            <td class="p-0 text-center">{{trailer.type}}</td>
+            <td class="p-0 text-center">{{trailer.length}}</td>
+            <td class="p-0 text-center">{{trailer.carryWeight}}</td>
+            <td class="p-0 text-center">{{trailer.status}}</td>
+            <td class="p-0 text-center">{{trailer.isActive}}</td>
+            <td class="p-0 text-center">{{trailer.location}}</td>
+            <td class="p-0 text-center">{{trailer.truckNumber}}</td>
+            <td class="p-0 text-center">{{trailer.number}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="card-content">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-3">
+          <h5>
+            Upload drivers fourth
+          </h5>
+        </div>
+        <div class="col-md-3">
+          <input type="file" name="File Upload"
+                 accept=".csv"
+                 (change)="uploadDriversCsv($event)"
+          />
+        </div>
+        <div class="col-md-3">
+          <button *ngIf="drivers.length > 1" (click)="uploadDriversCsvToDb()">All drivers checked upload to DB</button>
+        </div>
+        <div class="col-md-3">
+          <button (click)="downloadDriversFromDb()">Download all drivers from DB</button>
+          <button class="btn btn-outline-danger btn-danger" (click)="deleteDriversFromDb()">Delete ALL Drivers</button>
+        </div>
+        <div class="col-md-12">
+          <p>
+            <ngb-progressbar type="success" [value]="driversUploadProgress"></ngb-progressbar>
+          </p>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table m-1 table-hover">
+          <thead class="thead-dark " >
+          <tr>
+            <th class="p-0 text-center">id</th>
+            <th class="p-0 text-center">truckId</th>
+            <th class="p-0 text-center">truck</th>
+            <th class="p-0 text-center">companyId</th>
+            <th class="p-0 text-center">status</th>
+            <th class="p-0 text-center">fein</th>
+            <th class="p-0 text-center">ssn</th>
+            <th class="p-0 text-center">hireDate</th>
+            <th class="p-0 text-center">terminationDate</th>
+            <th class="p-0 text-center">address</th>
+            <th class="p-0 text-center">city</th>
+            <th class="p-0 text-center">state</th>
+            <th class="p-0 text-center">zip</th>
+            <th class="p-0 text-center">homePhone</th>
+            <th class="p-0 text-center">cellPhone</th>
+            <th class="p-0 text-center">email</th>
+            <th class="p-0 text-center">division</th>
+            <th class="p-0 text-center">isSendEmail</th>
+            <th class="p-0 text-center">isSendTextMessage</th>
+            <th class="p-0 text-center">emergencyPhone</th>
+            <th class="p-0 text-center">emergencyRelationship</th>
+            <th class="p-0 text-center">emergencyContact</th>
+            <th class="p-0 text-center">cdlState</th>
+            <th class="p-0 text-center">cdlExpirationDate</th>
+            <th class="p-0 text-center">cdlClass</th>
+            <th class="p-0 text-center">cdlEndorsement</th>
+            <th class="p-0 text-center">cdlNumber</th>
+            <th class="p-0 text-center">statedOperated</th>
+            <th class="p-0 text-center">safeDrivingAwards</th>
+            <th class="p-0 text-center">specialTraining</th>
+            <th class="p-0 text-center">yearsOfExperiece</th>
+            <th class="p-0 text-center">company</th>
+            <th class="p-0 text-center">address2</th>
+            <th class="p-0 text-center">zip2</th>
+            <th class="p-0 text-center">firstName</th>
+            <th class="p-0 text-center">lastName</th>
+            <th class="p-0 text-center">dateOfBirth</th>
+            <th class="p-0 text-center">uId</th>
+            <th class="p-0 text-center">truckNumber</th>
+          </tr>
+          </thead>
+          <tbody *ngFor="let driver of drivers; let idx = index">
+          <tr >
+            <td class="p-0 text-center">{{driver.id}}</td>
+            <td class="p-0 text-center">{{driver.truckId}}</td>
+            <td class="p-0 text-center">{{driver.truck}}</td>
+            <td class="p-0 text-center">{{driver.companyId}}</td>
+            <td class="p-0 text-center">{{driver.status}}</td>
+            <td class="p-0 text-center">{{driver.fein}}</td>
+            <td class="p-0 text-center">{{driver.ssn}}</td>
+            <td class="p-0 text-center">{{driver.hireDate}}</td>
+            <td class="p-0 text-center">{{driver.terminationDate}}</td>
+            <td class="p-0 text-center">{{driver.address}}</td>
+            <td class="p-0 text-center">{{driver.city}}</td>
+            <td class="p-0 text-center">{{driver.state}}</td>
+            <td class="p-0 text-center">{{driver.zip}}</td>
+            <td class="p-0 text-center">{{driver.homePhone}}</td>
+            <td class="p-0 text-center">{{driver.cellPhone}}</td>
+            <td class="p-0 text-center">{{driver.email}}</td>
+            <td class="p-0 text-center">{{driver.division}}</td>
+            <td class="p-0 text-center">{{driver.isSendEmail}}</td>
+            <td class="p-0 text-center">{{driver.isSendTextMessage}}</td>
+            <td class="p-0 text-center">{{driver.emergencyPhone}}</td>
+            <td class="p-0 text-center">{{driver.emergencyRelationship}}</td>
+            <td class="p-0 text-center">{{driver.emergencyContact}}</td>
+            <td class="p-0 text-center">{{driver.cdlState}}</td>
+            <td class="p-0 text-center">{{driver.cdlExpirationDate}}</td>
+            <td class="p-0 text-center">{{driver.cdlClass}}</td>
+            <td class="p-0 text-center">{{driver.cdlEndorsement}}</td>
+            <td class="p-0 text-center">{{driver.cdlNumber}}</td>
+            <td class="p-0 text-center">{{driver.statedOperated}}</td>
+            <td class="p-0 text-center">{{driver.safeDrivingAwards}}</td>
+            <td class="p-0 text-center">{{driver.specialTraining}}</td>
+            <td class="p-0 text-center">{{driver.yearsOfExperiece}}</td>
+            <td class="p-0 text-center">{{driver.company}}</td>
+            <td class="p-0 text-center">{{driver.address2}}</td>
+            <td class="p-0 text-center">{{driver.zip2}}</td>
+            <td class="p-0 text-center">{{driver.firstName}}</td>
+            <td class="p-0 text-center">{{driver.lastName}}</td>
+            <td class="p-0 text-center">{{driver.dateOfBirth}}</td>
+            <td class="p-0 text-center">{{driver.uId}}</td>
+            <td class="p-0 text-center">{{driver.truckNumber}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+<!--  <div class="card-content">-->
+<!--    <div class="card-body">-->
+<!--      <div class="row">-->
+<!--        <div class="col-md-3">-->
+<!--          <h5>-->
+<!--            Upload offers six-->
+<!--          </h5>-->
+<!--        </div>-->
+<!--        <div class="col-md-3">-->
+<!--          <input type="file" name="File Upload"-->
+<!--                 accept=".csv"-->
+<!--                 (change)="uploadOffersCsv($event)"-->
+<!--          />-->
+<!--        </div>-->
+<!--        <div class="col-md-3">-->
+<!--          <button *ngIf="offers.length > 1" (click)="uploadOffersCsvToDb()">All offers checked upload to DB</button>-->
+<!--        </div>-->
+<!--        <div class="col-md-3">-->
+<!--          <button (click)="downloadOffersFromDb()">Download all offers from DB</button>-->
+<!--          <button class="btn btn-outline-danger btn-danger" (click)="deleteOffersFromDb()">Delete ALL Offers</button>-->
+<!--        </div>-->
+<!--        <div class="col-md-12">-->
+<!--          <p>-->
+<!--            <ngb-progressbar type="success" [value]="offersUploadProgress"></ngb-progressbar>-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="table-responsive">-->
+<!--        <table class="table m-1 table-hover">-->
+<!--          <thead class="thead-dark " >-->
+<!--          <tr>-->
+<!--            <th class="p-0 text-center">company</th>-->
+<!--            <th class="p-0 text-center">companyId</th>-->
+<!--            <th class="p-0 text-center">companyName</th>-->
+<!--            <th class="p-0 text-center">createdById</th>-->
+<!--            <th class="p-0 text-center">createdBy</th>-->
+<!--            <th class="p-0 text-center">createdByName</th>-->
+<!--            <th class="p-0 text-center">createdAt</th>-->
+<!--            <th class="p-0 text-center">pickupAddress</th>-->
+<!--            <th class="p-0 text-center">pickupState</th>-->
+<!--            <th class="p-0 text-center">pickupZip</th>-->
+<!--            <th class="p-0 text-center">pickupGps</th>-->
+<!--            <th class="p-0 text-center">pickupLat</th>-->
+<!--            <th class="p-0 text-center">pickupLng</th>-->
+<!--            <th class="p-0 text-center">pickupDate</th>-->
+<!--            <th class="p-0 text-center">deliveryZip</th>-->
+<!--            <th class="p-0 text-center">deliveryGps</th>-->
+<!--            <th class="p-0 text-center">deliveryDate</th>-->
+<!--            <th class="p-0 text-center">deliveryAddress</th>-->
+<!--            <th class="p-0 text-center">deliveryState</th>-->
+<!--            <th class="p-0 text-center">deliveryLat</th>-->
+<!--            <th class="p-0 text-center">deliveryLng</th>-->
+<!--            <th class="p-0 text-center">truckId</th>-->
+<!--            <th class="p-0 text-center">truckNumber</th>-->
+<!--            <th class="p-0 text-center">Truck</th>-->
+<!--          </tr>-->
+<!--          </thead>-->
+<!--          <tbody *ngFor="let offer of offers; let idx = index">-->
+<!--          <tr >-->
+<!--            <td class="p-0 text-center">{{offer.company}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.companyId}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.companyName}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.createdById}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.createdBy}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.createdByName}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.createdAt}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.pickupAddress}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.pickupState}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.pickupZip}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.pickupGps}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.pickupLat}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.pickupLng}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.pickupDate}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.deliveryZip}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.deliveryGps}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.deliveryDate}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.deliveryAddress}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.deliveryState}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.deliveryLat}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.deliveryLng}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.truckId}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.truckNumber}}</td>-->
+<!--            <td class="p-0 text-center">{{offer.Truck}}</td>-->
+<!--          </tr>-->
+<!--          </tbody>-->
+<!--        </table>-->
+<!--      </div>-->
+<!--    </div>-->
+  </div>
+</div>

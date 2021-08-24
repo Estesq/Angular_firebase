@@ -1,0 +1,155 @@
+button{
+  border:none;
+}
+.truck-list {
+  border: 1px solid #BCBEBE;
+  padding: 20px 16px;
+  border-radius: .25rem;
+  &__search {
+    & .form-control-position {
+      position: absolute;
+      top: 50%;
+      left: 0px;
+      transform: translateY(-50%);
+    }
+    & i {
+      color: #96999A;
+    }
+    & input {
+      padding-left: 40px;
+      font-size: 14px;
+      line-height: 16px;
+      background-color: #fff;
+      &::placeholder {
+        color: #96999A;
+      }
+    }
+  }
+}
+
+.truck {
+  &__items {
+    &-title {
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 14px;
+      color: #96999A;
+    }
+    &-head {
+      margin-bottom: 12px;
+    }
+  }
+  &__item {
+    transition: all 0.3s;
+    &-show {
+      background: #FFFFFF;
+      border: 1px solid #BCBEBE;
+      border-radius: .25rem;
+      filter: drop-shadow(0px 0px 12px rgba(0, 0, 0, 0.15));
+      font-size: 12px;
+      color: #3B3C3D;
+      height: 40px;
+      position: relative;
+      transition: all 0.3s;
+      cursor: pointer;
+      & .row {
+        height: 100%;
+        flex-wrap: nowrap;
+      }
+    }
+    &-btn {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      background-color: transparent;
+    }
+    &-hidden {
+      transition: all 0.3s;
+      margin-top: 12px;
+      position: absolute;
+      opacity:0;
+      visibility: hidden;
+      z-index: -1;
+    }
+    &-show--active+.truck__item-hidden{
+      position: static;
+      visibility: visible;
+      opacity: 1;
+      z-index: 1;
+    }
+    &-show--active{
+      & .truck__item-btn img {
+        transform: rotate(180deg);
+      }
+    }
+  }
+  &__item--open {
+
+  }
+}
+
+.connect-driver,
+.connect-trailer {
+  &__title {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    text-transform: uppercase;
+    color: #96999A;
+  }
+  &__item {
+    font-size: 12px;
+    line-height: 14px;
+    color: #96999A;
+    background: #FFFFFF;
+    border: 1px solid #BCBEBE;
+    border-radius: 4px;
+    height: 36px;
+    & .row {
+      height: 100%;
+    }
+    & button {
+      background: #F15A39;
+      border-radius: 2px;
+      height: 20px;
+      width: 20px;
+      margin-left: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    & .color-black {
+      color: #3B3C3D;
+    }
+  }
+  &__item--empty {
+    background: #F4F4F5;
+    border: 1px dashed #BCBEBE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & span {
+      font-size: 12px;
+      line-height: 14px;
+      color: #3B3C3D;
+      opacity: 0.65;
+    }
+  }
+  &__item--drag {
+    opacity: 0.35;
+    & button {
+      width: 16px;
+      height: 16px;
+      background-image: url(../../../assets/img/svg/icon_drag.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: transparent;
+      & svg {
+        display: none;
+      }
+    }
+  }
+}

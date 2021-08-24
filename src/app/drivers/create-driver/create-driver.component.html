@@ -1,0 +1,286 @@
+<section id="basic-hidden-label-form-layouts">
+  <div class="row match-height">
+    <!-- Basic Form starts -->
+    <div class="col-lg-12 col-12">
+      <form *ngIf="!loading" [formGroup]="driverForm">
+        <div class="card">
+          <div class="card-header"></div>
+          <div class="card-content container">
+            <div class="row">
+              <div class="col-md-4" >
+                <div class="drivercard">
+                  <h5>Personal Info</h5>
+                  <label>First Name</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="firstName" [formControl]="driverForm.controls['firstName']" class="form-control mb-2" placeholder="First Name">
+                  </div>
+                  <label>Last Name</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="lastName" [formControl]="driverForm.controls['lastName']" class="form-control mb-2" placeholder="Last Name">
+                  </div>
+                  <div class="form-group">
+                    <label>Date Of Birthday</label>
+                    <div class="input-group">
+                      <input
+                        class="form-control"
+                        placeholder="yyyy-mm-dd"
+                        name="dateOfBirth"
+                        ngbDatepicker
+                        formControlName="dateOfBirth"
+                        [formControl]="driverForm.controls['dateOfBirth']" 
+                        #dateOfBirthdayDatepicker="ngbDatepicker"
+                      >
+                      <div class="input-group-append">
+                        <div class="input-group-text" (click)="dateOfBirthdayDatepicker.toggle()">
+                          <i class="fa fa-calendar" style="cursor: pointer;"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <label>SSN #</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="ssn" class="form-control mb-2" placeholder="SSN" [formControl]="driverForm.controls['ssn']">
+                  </div>
+                  <label>FEIN #</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="fein" class="form-control mb-2" placeholder="FEIN" [formControl]="driverForm.controls['fein']">
+                  </div>
+                </div>
+                <div class="drivercard">
+                  <h5>General</h5>
+                  <div class="form-group">
+                    <label for="status">
+                      Status
+                    </label>
+                    <select id="status" formControlName="status" class="form-control" [formControl]="driverForm.controls['status']">
+                      <option value="Pending">Pending</option>
+                      <option value="Active">Active</option>
+                      <option value="Blocked">Blocked</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Hire Date</label>
+                    <div class="input-group">
+                      <input
+                        class="form-control"
+                        placeholder="yyyy-mm-dd"
+                        name="hireDate"
+                        ngbDatepicker
+                        formControlName="hireDate"
+                        #hireDatepicker="ngbDatepicker" [formControl]="driverForm.controls['hireDate']"
+                      >
+                      <div class="input-group-append">
+                        <div class="input-group-text" (click)="hireDatepicker.toggle()">
+                          <i class="fa fa-calendar" style="cursor: pointer;"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Termination Date</label>
+                    <div class="input-group">
+                      <input
+                        class="form-control"
+                        placeholder="yyyy-mm-dd"
+                        name="terminationDate"
+                        ngbDatepicker
+                        formControlName="terminationDate"
+                        #terminationDatepicker="ngbDatepicker" [formControl]="driverForm.controls['terminationDate']"
+                      >
+                      <div class="input-group-append">
+                        <div class="input-group-text" (click)="terminationDatepicker.toggle()">
+                          <i class="fa fa-calendar" style="cursor: pointer;"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <label for="division">
+                    Division
+                  </label>
+                  <select id="division" formControlName="division" class="form-control" [formControl]="driverForm.controls['division']">
+                    <option value="Division1">Division1</option>
+                    <option value="Division2">Division2</option>
+                    <option value="Division3">Division3</option>
+                  </select>
+                  <label for="truck">
+                    Truck #
+                  </label>
+                  <select id="truck" formControlName="truck" class="form-control" [formControl]="driverForm.controls['truck']">
+                    <option value="">Unset</option>
+                    <option *ngFor="let _truck of trucks" [ngValue]="_truck.id">{{_truck.mark}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="drivercard">
+                  <h5>Driver info</h5>
+                  <label>Street 1</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="address" [formControl]="driverForm.controls['address']" class="form-control mb-2" placeholder="Street 1">
+                  </div>
+                  <label>Street 2</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="address2" [formControl]="driverForm.controls['address2']" class="form-control mb-2" placeholder="Street 2">
+                  </div>
+                  <label>City</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="city" [formControl]="driverForm.controls['city']" class="form-control mb-2" placeholder="City">
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label for="state">
+                        State
+                      </label>
+                      <select id="state" formControlName="state" [formControl]="driverForm.controls['state']" class="form-control">
+                        <option *ngFor="let _state of stateList" [ngValue]="_state.iso">{{_state.iso}} - {{_state.name}}</option>
+                      </select>
+                    </div>
+                    <div class="col-md-6">
+                      <label>Zip</label>
+                      <div class="form-group zip">
+                        <input type="text" formControlName="zip" [formControl]="driverForm.controls['zip']" class="form-control mb-2" placeholder="Zip">
+                        <span class="zip-span">-</span>
+                        <input type="text" formControlName="zip2" [formControl]="driverForm.controls['zip2']" class="form-control mb-2" placeholder="Zip">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="drivercard">
+                  <h5>Contact</h5>
+                  <label>Home Phone #</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="homePhone" [formControl]="driverForm.controls['homePhone']" class="form-control mb-2" placeholder="Home Phone #">
+                  </div>
+                  <label>Cell Phone #</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="cellPhone" [formControl]="driverForm.controls['cellPhone']" class="form-control mb-2" placeholder="Cell Phone #">
+                  </div>
+                  <div class="form-group">
+                    <label>Email</label>
+                    <!-- <input type="text" formControlName="email" class="form-control mb-2" placeholder="Email"> -->
+                    <input type="email" formControlName="email" class="form-control mb-2" placeholder="Email" [formControl]="driverForm.controls['email']">
+                  </div>
+                  <div class="form-group row">
+                    <div class="col-md-6">
+                      <div class="d-flex justify-content-center align-items-center">
+                        <div class="checkbox">
+                          <input type="checkbox" formControlName="isSendTextMessage" class="form-control" id="isSendTextMessage" [formControl]="driverForm.controls['isSendTextMessage']">
+                          <label for="isSendTextMessage">
+                            <span class="font-small-2 mb-3 font-weight-normal">Send Text Message</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="d-flex justify-content-center align-items-center">
+                        <div class="checkbox">
+                          <input type="checkbox" formControlName="isSendEmail" class="form-control" id="isSendEmail" [formControl]="driverForm.controls['isSendEmail']">
+                          <label for="isSendEmail">
+                            <span class="font-small-2 mb-3 font-weight-normal">Send Email</span>
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <label>Emergency Contact</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="emergencyPhone" class="form-control mb-2" placeholder="Emergency Contact" [formControl]="driverForm.controls['emergencyPhone']">
+                  </div>
+                  <label>Emergency Phone</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="emergencyContact" class="form-control mb-2" placeholder="Emergency Phone" [formControl]="driverForm.controls['emergencyContact']">
+                  </div>
+                  <label>Emergency Relationship</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="emergencyRelationship" class="form-control mb-2" placeholder="Emergency Relationship" [formControl]="driverForm.controls['emergencyRelationship']">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="drivercard">
+                  <h5>CDL Info</h5>
+                  <label>CDL Number</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="cdlNumber" class="form-control mb-2" placeholder="CDL Number" [formControl]="driverForm.controls['cdlNumber']">
+                  </div>
+                  <label>CDL State</label>                  
+                  <select id="cdlState" formControlName="cdlState" class="form-control" [formControl]="driverForm.controls['cdlState']">
+                    <option *ngFor="let _state of stateList" [ngValue]="_state.iso">{{_state.iso}} - {{_state.name}}</option>
+                  </select>
+                  <div class="form-group">
+                    <label>CDL Expiration Date</label>                  
+                    <div class="input-group">
+                      <input
+                        class="form-control"
+                        placeholder="yyyy-mm-dd"
+                        name="cdlExpirationDate"
+                        ngbDatepicker
+                        formControlName="cdlExpirationDate"
+                        #cdlExpirationDatepicker="ngbDatepicker" 
+                        [formControl]="driverForm.controls['cdlExpirationDate']"
+                      >
+                      <div class="input-group-append">
+                        <div class="input-group-text" (click)="cdlExpirationDatepicker.toggle()">
+                          <i class="fa fa-calendar" style="cursor: pointer;"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <label>CDL Class</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="cdlClass" class="form-control mb-2" placeholder="CDL Class" [formControl]="driverForm.controls['cdlClass']">
+                  </div>
+                  <label>CDL Endorsement</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="cdlEndorsement" class="form-control mb-2" placeholder="CDL Endorsement" [formControl]="driverForm.controls['cdlEndorsement']">
+                  </div>
+                  <label>Years Of Experiece</label>
+                  <div class="form-group">
+                    <input type="number" formControlName="yearsOfExperiece" class="form-control mb-2" placeholder="Years Of Experiece" [formControl]="driverForm.controls['yearsOfExperiece']">
+                  </div>
+                  <label>Stated Operated</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="statedOperated" class="form-control mb-2" placeholder="Stated Operated" [formControl]="driverForm.controls['statedOperated']">
+                  </div>
+                  <label>Safe Driving Awards</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="safeDrivingAwards" class="form-control mb-2" placeholder="Safe Driving Awards" [formControl]="driverForm.controls['safeDrivingAwards']">
+                  </div>
+                  <label>Special Training</label>
+                  <div class="form-group">
+                    <input type="text" formControlName="specialTraining" class="form-control mb-2" placeholder="Special Training" [formControl]="driverForm.controls['specialTraining']">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-footer">
+            <div class="row" *ngIf="inviteUserMessage != ''">
+              <div class="col-12">
+                <ngb-alert type="light-danger" class="mb-2" (close)="inviteUserMessage = ''">
+                  <p class="mb-0">{{inviteUserMessage}}</p>
+                </ngb-alert>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-9">
+                <div *ngIf="error" class="help-block mt-1 text-danger">
+                  <i class="ft-alert-circle align-middle"></i> {{error}}
+                </div>
+              </div>
+
+              <div class="col-md-3">
+                <a class="btn btn-link" [routerLink]="['/drivers/list']">Cancel</a>
+                <a class="btn btn-primary" (click)="onSubmit()">Save</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- Basic Form ends -->
+  </div>
+</section>

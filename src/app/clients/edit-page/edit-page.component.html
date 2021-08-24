@@ -1,0 +1,17 @@
+<div class="card-body">
+  <ul ngbNav #basicnav="ngbNav" [(activeId)]="active" class="nav-tabs">
+    <li [ngbNavItem]="1">
+      <a ngbNavLink>Companies</a>
+      <ng-template ngbNavContent>
+        <app-edit></app-edit>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+      <a ngbNavLink>Company staff</a>
+      <ng-template ngbNavContent>
+        Company staff
+      </ng-template>
+    </li>
+    </ul>
+  <div [ngbNavOutlet]="basicnav" class="mt-2"></div>
+</div>

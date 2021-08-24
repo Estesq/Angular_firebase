@@ -1,0 +1,178 @@
+<!--Dark table starts-->
+<section id="dark">
+<!--  <h2 class="card-title text-white">1</h2>-->
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header col-12"></div>
+        <div class="card-content col-12">
+          <form [formGroup]="newEmployeeForm">
+            <div class="row">
+              <div class="col-6">
+                <label>
+                  Email
+                </label>
+                <div class="form-group">
+                  <input type="email" formControlName="email" class="form-control mb-2" placeholder="Email"
+                         [ngClass]="{ 'is-invalid': newemployeeFormSubmitted && nuf.email.invalid, 'is-valid': newemployeeFormSubmitted && !nuf.email.invalid }"
+                         required>
+                  <div *ngIf="newemployeeFormSubmitted && (nuf.email.errors?.required)"
+                       class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i> Email is
+                    required</div>
+                  <div *ngIf="newemployeeFormSubmitted && nuf.email.errors?.email" class="help-block mt-1 text-danger"> <i
+                    class="ft-alert-circle align-middle"></i> Email must be a valid email address</div>
+                </div>
+              </div>
+              <div class="col-6">
+                <label>
+                  .
+                </label>
+                <button class="btn btn-outline-primary btn-block" (click)="inviteUser('staff')">
+                  Invite User
+                </button>
+              </div>
+            </div>
+            <div class="row" *ngIf="inviteUserMessage != ''">
+              <div class="col-12">
+                <ngb-alert type="light-danger" class="mb-2" (close)="inviteUserMessage = ''">
+                  <p class="mb-0">{{inviteUserMessage}}</p>
+                </ngb-alert>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="card-footer col-12"></div>
+      </div>
+      <div class="card" *ngIf="employee">
+        <div class="card-header" style="background-color: #4A5965">
+          <h6 style="color: white">
+            User details
+          </h6>
+        </div>
+        <div class="card-content">
+          <form [formGroup]="employeeForm">
+            <div class="card-body row">
+              <div class="col-12">
+                <div class="d-flex justify-content-between flex-sm-row flex-column">
+                  <button class="btn btn-outline-primary" (click)="clearForm()">Cancel</button>
+                  <button class="btn btn-outline-primary" (click)="onSubmit()">Save</button>
+                </div>
+              </div>
+              <div class="col-12">
+                <br>
+                <label>
+                  First Name
+                </label>
+                <div class="form-group">
+                  <input type="text" formControlName="firstName" class="form-control mb-2" placeholder="First Name"
+                  [ngClass]="{ 'is-invalid': employeeFormSubmitted && uf.firstName.invalid, 'is-valid': employeeFormSubmitted && !uf.firstName.invalid }"
+                  required>
+                  <div *ngIf="employeeFormSubmitted && (uf.firstName.invalid || uf.firstName.errors?.required)"
+                       class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i>
+                       First Name is required
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <label>
+                  Last Name
+                </label>
+                <div class="form-group">
+                  <input type="text" formControlName="lastName" class="form-control mb-2" placeholder="Last Name"
+                  [ngClass]="{ 'is-invalid': employeeFormSubmitted && uf.lastName.invalid, 'is-valid': employeeFormSubmitted && !uf.lastName.invalid }"
+                  required>
+                  <div *ngIf="employeeFormSubmitted && (uf.lastName.invalid || uf.lastName.errors?.required)"
+                       class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i>
+                       Last Name is required
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <label>
+                  Phone Number
+                </label>
+                <div class="form-group">
+                  <input type="text" formControlName="phone" class="form-control mb-2" placeholder="Last Name"
+                  [ngClass]="{ 'is-invalid': employeeFormSubmitted && uf.phone.invalid, 'is-valid': employeeFormSubmitted && !uf.phone.invalid }"
+                  required>
+                  <div *ngIf="employeeFormSubmitted && (uf.phone.invalid || uf.phone.errors?.required)"
+                       class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i>
+                       Phone Number is required
+                  </div>
+                </div>
+              </div>
+              <div class="col-12">
+                <hr/>
+                <label>
+                  Email
+                </label>
+                <p>
+                  <span class="badge badge-light mb-1 mr-2">
+                    {{employeeForm.value.email}}
+                  </span>
+                </p>
+<!--                <div class="form-group">-->
+<!--                  <input type="email" formControlName="email" class="form-control mb-2" placeholder="Email"-->
+<!--                         [ngClass]="{ 'is-invalid': employeeFormSubmitted && uf.email.invalid, 'is-valid': employeeFormSubmitted && !uf.email.invalid }"-->
+<!--                         required>-->
+<!--                  <div *ngIf="employeeFormSubmitted && (uf.email.errors?.required)"-->
+<!--                       class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i> Email is-->
+<!--                    required</div>-->
+<!--                  <div *ngIf="employeeFormSubmitted && uf.email.errors?.email" class="help-block mt-1 text-danger"> <i-->
+<!--                    class="ft-alert-circle align-middle"></i> Email must be a valid email address</div>-->
+<!--                </div>-->
+              </div>
+
+              <div class="col-12">
+                <label>
+                  User role
+                </label>
+                <p>
+                  <span class="badge badge-light mb-1 mr-2">
+                  {{employeeForm.value.role}}
+                  </span>
+                </p>
+
+<!--                <div class="form-group">-->
+<!--                  <select formControlName="role" class="form-control" aria-label="Default select example" required>-->
+<!--                    <option value="User">User</option>-->
+<!--                    <option value="Administrator">Administrator</option>-->
+<!--                  </select>-->
+<!--                </div>-->
+              </div>
+              <div class="col-12">
+                <label>
+                  User department
+                </label>
+                <p>
+                  <span class="badge badge-light mb-1 mr-2">
+                  {{employeeForm.value.department}}
+                  </span>
+                </p>
+              </div>
+              <div class="col-12 m-t-10">
+                <label>
+                  ID
+                </label>
+                <p>
+                  <span class="badge badge-light mb-1 mr-2">
+                  {{employeeForm.value.id}}
+                  </span>
+                </p>
+              </div>
+              <div class="col-12">
+                <div class="d-flex justify-content-between flex-sm-row flex-column" *ngIf="resetPasswordMessage == ''">
+                  <a class="btn btn-outline-primary primary" (click)="resetPassword()">Reset Password</a>
+                </div>
+                <ngb-alert type="light-danger" class="mb-2" *ngIf="resetPasswordMessage != ''" (close)="resetPasswordMessage = ''">
+                  <p class="mb-0">{{resetPasswordMessage}}</p>
+                </ngb-alert>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Dark table Ends-->

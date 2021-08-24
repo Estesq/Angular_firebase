@@ -1,0 +1,89 @@
+<div class="row">
+  <div class="col">
+    {{ truck.id }}
+    <div class="row">
+      <b>List of free Driver </b>
+      <div *ngFor="let d of freeDrivers">
+        <div class="col">
+          <p>{{ d.id }}</p>
+          <button class="btn btn-primary" (click)="addDriver(d)">add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="row">
+      <div class="col">
+        <div>
+          {{ truck.driver1id }}
+          <button
+            class="btn btn-danger"
+            (click)="deleteDriver(truck.driver1id)"
+          >
+            del
+          </button>
+        </div>
+        <div>
+          {{ truck.driver2id }}
+          <button
+            class="btn btn-danger"
+            (click)="deleteDriver(truck.driver2id)"
+          >
+            del
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col mt-4">
+    {{ truck.id }}
+    <div class="row">
+      <b>List of free Trailers </b>
+      <div *ngFor="let t of freeTrailers">
+        <div class="col">
+          <p>{{ t.id }}</p>
+          <button class="btn btn-primary" (click)="addTrailer(t)">add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="row">
+      <div class="col">
+        <div>
+          {{ truck.trailer1id }}
+          <button
+            class="btn btn-danger"
+            (click)="deleteTrailer(truck.trailer1id)"
+          >
+            del
+          </button>
+        </div>
+        <div>
+          {{ truck.trailer2id }}
+          <button
+            class="btn btn-danger"
+            (click)="deleteTrailer(truck.trailer2id)"
+          >
+            del
+          </button>
+        </div>
+        <div>
+          {{ truck.trailer3id }}
+          <button
+            class="btn btn-danger"
+            (click)="deleteTrailer(truck.trailer3id)"
+          >
+            del
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

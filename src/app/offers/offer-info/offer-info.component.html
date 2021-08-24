@@ -1,0 +1,111 @@
+<!--Dark table starts-->
+<section id="dark">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header col-12"></div>
+        <div class="card-content col-12">
+          <div class="row">
+            <div class="col-12">
+<!--              <button class="btn btn-primary" [routerLink]="['../../offers/create']">-->
+<!--                New offer-->
+<!--              </button>-->
+            </div>
+          </div>
+        </div>
+        <div class="card-footer col-12"></div>
+      </div>
+      <div class="card" *ngIf="data && offer">
+        <div class="card-header" style="background-color: #4A5965">
+          <h6 style="color: white">
+            Offer information
+          </h6>
+        </div>
+        <div class="card-content">
+          <div class="card-body row">
+            <div class="col-md-12 edit"><a [routerLink]="['../../offers/edit/', this.offer.id]"><i class="ft-edit"></i></a></div>
+
+            <div class="col-md-12"><h5>offer #{{offer.id}}</h5></div>
+
+            <div class="col-md-12">
+              <ul ngbNav #basicnav="ngbNav" [(activeId)]="active" class="nav-tabs">
+                <li [ngbNavItem]="1">
+                  <a ngbNavLink>Route</a>
+                  <ng-template ngbNavContent>
+                    <form [formGroup]="offerForm">
+                      <div class="card-body row">
+                        <div class="form-group row">
+                          <div class="col-12 d-flex flex-sm-row flex-column justify-content-end">
+                            <a class="primary" (click)="onSubmit()">Save</a>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">{{offer.pickupAddress}}, {{offer.pickupState}} {{offer.pickupZip}}</div>
+                          <div class="form-group col-md-6">
+                            <label>Pickup Date</label>
+                            <div class="input-group">
+                              <input
+                                class="form-control"
+                                placeholder="yyyy-mm-dd"
+                                name="pickupDate"
+                                ngbDatepicker
+                                formControlName="pickupDate"
+                                #pickupDatepicker="ngbDatepicker"
+                              >
+                              <div class="input-group-append">
+                                <div class="input-group-text" (click)="pickupDatepicker.toggle()">
+                                  <i class="fa fa-calendar" style="cursor: pointer;"></i>
+                                </div>
+                              </div>
+                              <ngb-timepicker formControlName="pickupTime"></ngb-timepicker>
+                              <div *ngIf="offerFormSubmitted && (cf.pickupDate.errors?.required)"
+                                class="help-block mt-1 text-danger">
+                                <i class="ft-alert-circle align-middle"></i> Pickup Date is required
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">{{offer.deliveryAddress}}, {{offer.deliveryState}} {{offer.deliveryZip}}</div>
+                          <div class="form-group col-md-6">
+                            <label>Delivery Date</label>
+                            <div class="input-group">
+                              <input
+                                class="form-control"
+                                placeholder="yyyy-mm-dd"
+                                name="deliveryDate"
+                                ngbDatepicker
+                                formControlName="deliveryDate"
+                                #deliveryDatepicker="ngbDatepicker"
+                              >
+                              <div class="input-group-append">
+                                <div class="input-group-text" (click)="deliveryDatepicker.toggle()">
+                                  <i class="fa fa-calendar" style="cursor: pointer;"></i>
+                                </div>
+                              </div>
+                              <ngb-timepicker formControlName="deliveryTime"></ngb-timepicker>
+                              <div *ngIf="offerFormSubmitted && (cf.deliveryDate.errors?.required)"
+                                class="help-block mt-1 text-danger">
+                                <i class="ft-alert-circle align-middle"></i> Delivery Date is required
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                    <div class="row">
+                      <div class="col-md-12" *ngIf="distance"><b>Total Distance:</b> {{distance}}m.</div>
+                      <div class="col-md-12" *ngIf="duration"><b>Travel Time:</b> {{duration.minutes}} minutes, {{duration.seconds}} seconds.</div>
+                    </div>
+                  </ng-template>
+                </li>
+              </ul>
+              <div [ngbNavOutlet]="basicnav" class="mt-2"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Dark table Ends-->

@@ -1,0 +1,60 @@
+<div class="modal-header">
+  <h4 class="modal-title">Add new company staff</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    x
+  </button>
+</div>
+<form [formGroup]="companyUsersForm"  >
+  <div class="modal-body taskboard-modal">
+    <label>
+      Full name
+    </label>
+    <div class="form-group">
+
+      <input type="text"
+             formControlName="fullName"
+             class="form-control mb-2" placeholder="Full name">
+    </div>
+    <label>
+      Department
+    </label>
+    <div class="form-group" >
+      <input  type="text"formControlName="department" class="form-control mb-2" placeholder="Department">
+    </div>
+    <label>
+      Cell phone
+    </label>
+    <div class="form-group" >
+      <input type="text" formControlName="cellPhone" class="form-control mb-2" placeholder="Cell phone">
+    </div>
+    <label>
+      Mobile phone
+    </label>
+    <div class="form-group" >
+      <input type="text" formControlName="mobilePhone" class="form-control mb-2" placeholder="Mobile phone">
+    </div>
+    <label>
+      Email
+    </label>
+    <div class="form-group" >
+      <input type="text" formControlName="email" class="form-control mb-2" placeholder="email">
+    </div>
+    <label>
+      Role
+    </label>
+    <div class="form-group" >
+      <input type="text"formControlName="role" class="form-control mb-2" placeholder="Role">
+    </div>
+    <label>
+      Status
+    </label>
+    <div class="form-group">
+      <input type="text" formControlName="status" class="form-control mb-2" placeholder="status">
+    </div>
+  </div>
+  <div class="modal-footer taskboard-modal-footer">
+    <button class="btn btn-primary btn-save" (click)="onSubmit()">
+      Save
+    </button>
+  </div>
+</form>

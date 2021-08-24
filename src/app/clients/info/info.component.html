@@ -1,0 +1,334 @@
+<!--Dark table starts-->
+<!--<div class="card">-->
+<!--  <div class="card-content">-->
+<!--    <div class="card-body table-responsive">-->
+<!--      <div class="row">-->
+<!--        <div class="col-6">-->
+<!--          <h5>Amira</h5>-->
+<!--        </div>-->
+
+<!--        <div class="col-6">-->
+<!--          <p class="text-muted">12 Users</p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="row">-->
+<!--        <div class="col-4">-->
+<!--          <h6 class="text-muted">COMPANY INFO</h6>-->
+<!--        </div>-->
+<!--        <div class="col-8">-->
+<!--          <hr />-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="row">-->
+<!--        <div class="col-4">-->
+<!--          <span class="text-muted block">Client ID:</span>-->
+<!--          <span class="text-muted block"> MC/FF#:</span>-->
+<!--          <span class="text-muted block">Address:</span>-->
+<!--        </div>-->
+<!--        <div class="col-8">-->
+<!--          <span class="block">12</span>-->
+<!--          <span class="block">MC258741</span>-->
+<!--          <span class="block">Egypt</span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <br />-->
+<!--      <br />-->
+<!--      <div class="row">-->
+<!--        <div class="col-4">-->
+<!--          <h6 class="text-muted">COMPANY INFO</h6>-->
+<!--        </div>-->
+<!--        <div class="col-8">-->
+<!--          <hr />-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="row">-->
+<!--        <div class="col-4">-->
+<!--          <span class="text-muted block">Contact name:</span>-->
+
+<!--          <span class="text-muted block"> Position:</span>-->
+
+<!--          <span class="text-muted block">Phone:</span>-->
+
+<!--          <span class="text-muted block">Call phone:</span>-->
+
+<!--          <span class="text-muted block">Email:</span>-->
+<!--        </div>-->
+<!--        <div class="col-8">-->
+<!--          <span class="block">Amira</span>-->
+
+<!--          <span class="block">Manager</span>-->
+
+<!--          <span class="block">1548796</span>-->
+
+<!--          <span class="block">1548796</span>-->
+<!--          <span class="block">amira@gmail.com</span>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <br />-->
+<!--      <br />-->
+<!--      <div class="container">-->
+<!--        <div class="row">-->
+<!--          <label for="basic-form-9">Comments:</label>-->
+<!--          <textarea-->
+<!--            id="basic-form-9"-->
+<!--            rows="4"-->
+<!--            class="form-control"-->
+<!--            name="comment"-->
+<!--          ></textarea>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <br />-->
+<!--      <div class="row">-->
+<!--        <div class="col-8"></div>-->
+<!--        <div class="col-4">-->
+<!--          <button-->
+<!--            type="button"-->
+<!--            class="btn btn-primary mr-1 mb-1"-->
+<!--            routerLink="/clients/client-info"-->
+<!--          >-->
+<!--            <span class="font-size">More Details</span>-->
+<!--          </button>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <ng-template #noData>-->
+<!--        <p class="text-center">Please select the row</p>-->
+<!--      </ng-template>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<section id="dark">
+<!--  <h2 class="card-title text-white">1</h2>-->
+  <div class="row">
+    <div class="col-12">
+<!--      <div class="card mt-0">-->
+<!--        <div class="card-header col-12"></div>-->
+<!--        <div class="card-content col-12">-->
+<!--          <form [formGroup]="newUserForm">-->
+<!--            <div class="row">-->
+<!--              <div class="col-6">-->
+<!--                <div class="form-group">-->
+<!--                  <input type="email" formControlName="email" class="form-control mb-2" placeholder="Email"-->
+<!--                         [ngClass]="{ 'is-invalid': newUserFormSubmitted && nuf.email.invalid, 'is-valid': newUserFormSubmitted && !nuf.email.invalid }"-->
+<!--                         required>-->
+<!--                  <div *ngIf="newUserFormSubmitted && (nuf.email.errors?.required)"-->
+<!--                       class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i> Email is-->
+<!--                    required</div>-->
+<!--                  <div *ngIf="newUserFormSubmitted && nuf.email.errors?.email" class="help-block mt-1 text-danger"> <i-->
+<!--                    class="ft-alert-circle align-middle"></i> Email must be a valid email address</div>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--              <div class="col-6">-->
+<!--                <button class="btn btn-outline-primary btn-block  primary" (click)="inviteUser()">-->
+<!--                  Invite User-->
+<!--                </button>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="row" *ngIf="inviteUserMessage != ''">-->
+<!--              <div class="col-12">-->
+<!--                <ngb-alert type="light-danger" class="mb-2" (close)="inviteUserMessage = ''">-->
+<!--                  <p class="mb-0">{{inviteUserMessage}}</p>-->
+<!--                </ngb-alert>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </form>-->
+<!--        </div>-->
+<!--      </div>-->
+      <div class="card card--posRelative">
+        <div class="card-header" style="background-color: #4A5965; display:none;">
+          <h6 style="color: white">
+            Client information
+          </h6>
+        </div>
+        <div class="card-content" *ngIf="company.id; else noData">
+          <div class="card-body row card-body--w100 pl-2 pr-2 m-0">
+            <div class="col-md-12  info-panel__header mb-3">
+<!--              <p class="text-muted text-small" >-->
+<!--                Company name-->
+<!--              </p>-->
+              <h5 class="mb-0">
+                <span class="company-name">{{company.name}} </span>
+<!--                <small class="text-bold">-->
+<!--                <span-->
+<!--                  *ngIf="company.mc"-->
+<!--                >mc - {{company.mc}}</span>-->
+<!--                  <span-->
+<!--                    *ngIf="company.id"-->
+<!--                  >mc - {{company.id}}</span>-->
+<!--                  <span-->
+<!--                    *ngIf="company.dot"-->
+<!--                  >mc - {{company.dot}}</span>-->
+<!--                </small>-->
+              </h5>
+              <a href="" class="company-users__link">14 company users</a>
+            </div>
+            <div class="col-12">
+              <p class="info-panel__title mb-3">
+                <span>company info</span>
+              </p>
+            </div>
+            <div class="col-12">
+              <div class="info-panel__item">
+                <b>
+                  Client ID:
+                </b>
+                <h6>
+                  {{company.id}}
+                </h6>
+              </div>
+              <div class="info-panel__item">
+                <b>
+                  MC/FF #:
+                </b>
+                <h6>
+
+                </h6>
+              </div>
+              <div class="info-panel__item" >
+                <b>
+                  Address:
+                </b>
+                <h6 *ngIf="company.address">
+                  {{company.address}}
+                  <br>
+                  {{company.city}}
+                  <br>
+                  {{company.state}}
+                  <br>
+                  {{company.zip}}
+                  <br>
+                </h6>
+              </div>
+            </div>
+            <div class="col-12">
+              <p class="info-panel__title mb-3 mt-3">
+                <span>contact info</span>
+              </p>
+            </div>
+            <div class="col-12">
+              <div class="info-panel__item">
+                <b>
+                  Contact name:
+                </b>
+                <h6>
+                  {{company.contactPersonName}}
+                </h6>
+              </div>
+              <div class="info-panel__item">
+                <b>
+                  Position:
+                </b>
+                <h6>
+                  {{company.contactPersonPosition}}
+                </h6>
+              </div>
+              <div class="info-panel__item">
+                <b>
+                  Phone:
+                </b>
+                <h6>
+                  {{company.mobilePhone}}
+                </h6>
+              </div>
+              <div class="info-panel__item">
+                <b>
+                  Cell phone:
+                </b>
+                <h6>
+                  {{company.cellPhone}}
+                  <!--                status - {{company.status}}-->
+                  <!--                ssn - {{company.ssn}}-->
+                  <!--                scas - {{company.scas}}-->
+                  <!--                fax - {{company.fax}}-->
+                </h6>
+              </div>
+              <div class="info-panel__item">
+                <b>
+                  Email:
+                </b>
+                <h6>
+                  {{company.email}}
+                </h6>
+              </div>
+            </div>
+
+<!--            <br>-->
+<!--            <div class="col-6">-->
+<!--              <b>-->
+<!--                Contacts:-->
+<!--              </b>-->
+<!--            </div>-->
+
+<!--            <div class="col-6">-->
+<!--              <b>-->
+<!--                Contact person:-->
+<!--              </b>-->
+<!--              <h6>-->
+<!--                {{company.contactPersonName}}-->
+<!--              </h6>-->
+<!--            </div>-->
+<!--            <div class="col-12">-->
+<!--              <b>-->
+<!--                Position:-->
+<!--              </b>-->
+<!--              <h6>-->
+<!--                {{company.contactPersonPosition}}-->
+<!--              </h6>-->
+<!--            </div>-->
+<!--            <div class="col-12">-->
+<!--              <b>-->
+<!--                Phone:-->
+<!--              </b>-->
+<!--              <h6>-->
+<!--                <h6>-->
+<!--                  {{company.mobilePhone}}-->
+<!--                </h6>-->
+<!--              </h6>-->
+<!--              <b>-->
+<!--                Cell phone:-->
+<!--              </b>-->
+<!--              <h6>-->
+<!--                {{company.cellPhone}}-->
+<!--&lt;!&ndash;                status - {{company.status}}&ndash;&gt;-->
+<!--&lt;!&ndash;                ssn - {{company.ssn}}&ndash;&gt;-->
+<!--&lt;!&ndash;                scas - {{company.scas}}&ndash;&gt;-->
+<!--&lt;!&ndash;                fax - {{company.fax}}&ndash;&gt;-->
+<!--              </h6>-->
+<!--              <b>-->
+<!--                Email:-->
+<!--              </b>-->
+<!--              <h6>-->
+<!--                {{company.email}}-->
+<!--              </h6>-->
+<!--            </div>-->
+            <div class="col-12 mt-4">
+              <b class="info-panel__comment">
+                Comments
+              </b>
+            </div>
+            <div class="col-12 ">
+              <textarea
+                style="width: 100%"
+                rows="5"
+                placeholder="{{company.comments}}"
+                class="info-panel__textarea"
+              ></textarea>
+            </div>
+            <div class="col-12">
+              <a class="btn btn-primary info-panel__btn" [routerLink]="['../../clients/edit', company.id]">
+                More details
+              </a>
+            </div>
+          </div>
+        </div>
+        <ng-template #noData>
+<!--          <p class="text-center " >Please select the row</p>-->
+              <p class="text-center card--posAbsolute">
+                Select the client from the table <br> to view or edit its information
+              </p>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Dark table Ends-->

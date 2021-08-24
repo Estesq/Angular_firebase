@@ -1,0 +1,23 @@
+<div class="card-body">
+  <ul ngbNav #basicnav="ngbNav" [(activeId)]="active" class="nav-tabs">
+    <li [ngbNavItem]="1">
+      <a ngbNavLink>Driver Info</a>
+      <ng-template ngbNavContent>
+        <app-create-driver></app-create-driver>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+      <a ngbNavLink>Files</a>
+      <ng-template ngbNavContent>
+        Files
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="3">
+      <a ngbNavLink>Notes</a>
+      <ng-template ngbNavContent>
+        Notes
+      </ng-template>
+    </li>
+  </ul>
+  <div [ngbNavOutlet]="basicnav" class="mt-2"></div>
+</div>

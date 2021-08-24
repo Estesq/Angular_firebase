@@ -1,0 +1,40 @@
+<div class="modal-header">
+  <h4 class="modal-title">Add new company staff</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    x
+  </button>
+</div>
+<form [formGroup]="usersForm" >
+  <div class="modal-body taskboard-modal">
+    userId = {{id}}
+    <label>
+      Email
+    </label>
+    <div class="form-group" [formGroup]="usersForm">
+      <input type="text" [formControl]="usersForm.controls['email']" formControlName="email" class="form-control mb-2" placeholder="email">
+    </div>
+    <label>
+      Role
+    </label>
+    <select [formControl]="usersForm.controls['role']" formControlName="role" class="form-control">
+      <option value="admin">Admin</option>
+      <option value="companyOwner">Company owner</option>
+      <option value="companyStaff">Company staff</option>
+      <option value="driver">Driver</option>
+      <option value="dispatcher">Dispatcher</option>
+      <option value="broker">Broker</option>
+    </select>
+
+    <label>
+      Status
+    </label>
+    <div class="form-group">
+      <input [formControl]="usersForm.controls['status']" type="text" formControlName="status" class="form-control mb-2" placeholder="status">
+    </div>
+  </div>
+  <div class="modal-footer taskboard-modal-footer">
+    <button class="btn btn-primary" (click)="onSubmit()">
+      Save
+    </button>
+  </div>
+</form>

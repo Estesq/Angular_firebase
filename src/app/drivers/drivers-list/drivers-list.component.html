@@ -1,0 +1,141 @@
+<section>
+  <div class="row">
+    <div class="col-md-9">
+      <h2 class="card-title">Drivers List</h2>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="row">
+              <div class="card-header col-md-6">
+                <fieldset class="form-group position-relative has-icon-right">
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="iconLeft2"
+                    placeholder="Search by driver Name"
+                    [(ngModel)]="id"
+                  />
+                  <div class="form-control-position">
+                    <i class="fa fa-search"></i>
+                  </div>
+                </fieldset>
+                {{ companyId }}
+                {{ today }}
+              </div>
+              <div class="card-header col-md-6">
+                <div class="btn-group" role="group">
+                  <button
+                    type="button"
+                    class="btn mb-1 mr-1"
+                    *ngIf="
+                      driverStatus !== 'Active' && driverStatus !== 'Blocked'
+                    "
+                    [ngClass]="{
+                      'btn-dark': driverStatus === 'Pending',
+                      'btn-light': driverStatus != 'Pending'
+                    }"
+                    (click)="selectDriverByStatus('Pending')"
+                  >
+                    Pending
+                  </button>
+                  <button
+                    *ngIf="
+                      driverStatus !== 'Pending' && driverStatus !== 'Blocked'
+                    "
+                    type="button"
+                    class="btn mb-1 mr-1"
+                    [ngClass]="{
+                      'btn-dark': driverStatus === 'Active',
+                      'btn-light': driverStatus != 'Active'
+                    }"
+                    (click)="selectDriverByStatus('Active')"
+                  >
+                    Active
+                  </button>
+                  <button
+                    type="button"
+                    class="btn mb-1 mr-1"
+                    *ngIf="
+                      driverStatus !== 'Active' && driverStatus !== 'Pending'
+                    "
+                    [ngClass]="{
+                      'btn-dark': driverStatus === 'Blocked',
+                      'btn-light': driverStatus != 'Blocked'
+                    }"
+                    (click)="selectDriverByStatus('Blocked')"
+                  >
+                    Blocked
+                  </button>
+                  <button
+                    *ngIf="driverStatus !== ''"
+                    type="button"
+                    class="btn btn-dark-outline mb-1 mr-1"
+                    (click)="selectDriverByStatus('')"
+                  >
+                    Clear filter
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table m-1 table-hover">
+                    <thead class="thead-dark">
+                      <tr>
+                        <th class="p-0 text-center">company Id</th>
+                        <th class="p-0 text-center">Full Name</th>
+                        <th class="p-0 text-center">Department</th>
+                        <th class="p-0 text-center">Cell-Phone</th>
+                        <th class="p-0 text-center">CDL Class</th>
+                        <th class="p-0 text-center">CDL Endorsement</th>
+                        <th class="p-0 text-center">Truck #</th>
+                        <th class="p-0 text-center">Status</th>
+                        <th class="p-0 text-center">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      *ngFor="
+                        let driver of data
+                          | driverSearchPipe: id
+                          | driverStatusSearchPipe: driverStatus;
+                        let idx = index
+                      "
+                    >
+                      <tr (click)="selectId(driver.id)" style="hower: cursor">
+                        <td class="p-0 text-center">{{ driver.companyId }}</td>
+                        <td class="p-0 text-center">
+                          {{ driver.firstName }} {{ driver.lastName }}
+                        </td>
+                        <td class="p-0 text-center">{{ driver.department }}</td>
+                        <td class="p-0 text-center">{{ driver.cellPhone }}</td>
+                        <td class="p-0 text-center">{{ driver.cdlClass }}</td>
+                        <td class="p-0 text-center">
+                          {{ driver.cdlEndorsement }}
+                        </td>
+                        <td class="p-0 text-center">
+                          {{ driver.truckNumber }}
+                        </td>
+                        <td class="p-0 text-center">{{ driver.status }}</td>
+                        <td>
+                          <div>
+                            <a class="danger" (click)="deleteDriver(driver.id)">
+                              <i class="ft-trash font-medium-3"></i>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <app-driver-info [data]="selectedId"></app-driver-info>
+    </div>
+  </div>
+</section>

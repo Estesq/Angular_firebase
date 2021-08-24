@@ -1,0 +1,375 @@
+  <div class="load-edit__inner">
+    <aside></aside>
+    <main>
+      <div class="load-edit__top load-edit__top--board">
+        <div class="load-edit__top-left">
+          <p class="load-edit__top-title">Load board</p>
+        </div>
+        <div class="load-edit__top-right">
+          <button class="load-edit__btn--load">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M5.49132 2L1.98376 4.99375H11.0908L11.0908 2H5.49132ZM18.5048 2L22 4.99375H12.9251L12.9251 2H18.5048ZM21.9818 6.6875H2.01824C2.01739 6.70734 2.01329 6.72655 2.00919 6.74575C2.00459 6.76726 2 6.78876 2 6.81109V20.2422C2 21.2115 2.78852 22 3.75781 22H20.2422C21.2115 22 22 21.2115 22 20.2422V6.81109C22 6.78876 21.9954 6.76727 21.9908 6.74575C21.9867 6.72655 21.9826 6.70734 21.9818 6.6875ZM14.4255 13.8605H15.3906C15.9308 13.8605 16.2039 14.516 15.8215 14.8984L12.4287 18.2913C12.1919 18.528 11.8096 18.528 11.5728 18.2913L8.17995 14.8984C7.79757 14.516 8.06463 13.8605 8.60482 13.8605H9.56988V10.8257C9.56988 10.4919 9.84301 10.2188 10.1768 10.2188H13.8186C14.1524 10.2188 14.4255 10.4919 14.4255 10.8257V13.8605Z" fill="#ffffff"/>
+            </svg>
+            <span>New Load</span>
+          </button>
+        </div>
+      </div>
+      <div class="load-board">
+        <div class="load-board__top">
+          <fieldset class="form-group position-relative has-icon-right mb-0 load-board__top-search">
+            <input
+              type="text"
+              class="form-control input--h40"
+              id="iconLeft2"
+              placeholder="Search"
+
+            />
+            <div class="form-control-position form-control-position--h40">
+              <i class="fa fa-search"></i>
+              <!--                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">-->
+              <!--                      <path d="M15.5 14H14.71L14.43 13.73C15.63 12.33 16.25 10.42 15.91 8.39C15.44 5.61 13.12 3.39 10.32 3.05C6.09001 2.53 2.53002 6.09 3.05002 10.32C3.39002 13.12 5.61002 15.44 8.39002 15.91C10.42 16.25 12.33 15.63 13.73 14.43L14 14.71V15.5L18.25 19.75C18.66 20.16 19.33 20.16 19.74 19.75C20.15 19.34 20.15 18.67 19.74 18.26L15.5 14ZM9.50002 14C7.01002 14 5.00002 11.99 5.00002 9.5C5.00002 7.01 7.01002 5 9.50002 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.50002 14Z" fill="#4A5965"/>-->
+              <!--                    </svg>-->
+
+            </div>
+          </fieldset>
+<!--          <input class="load-board__top-search" placeholder="Search" type="search">-->
+          <input class="load-board__top-export" placeholder="Paste data here for a quick export" type="text">
+        </div>
+        <div class="load-board__inner">
+          <div class="load-board__left">
+            <div class="load-board__content">
+              <table class="load-board__content-table">
+                <thead>
+                <tr>
+                  <th>Time</th>
+                  <th>Customer</th>
+                  <th>Pickup Date</th>
+                  <th>DH-O</th>
+                  <th>Pickup Address</th>
+                  <th>DH-D</th>
+                  <th>Delivery Address</th>
+                  <th>Delivery Date</th>
+                  <th>F/P</th>
+                  <th>Type Eqpt</th>
+                  <th>Weight</th>
+                  <th>Rate</th>
+                  <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>00:00</td>
+                  <td>deBoer Transportatio...</td>
+                  <td>08/03/2020</td>
+                  <td>18</td>
+                  <td>Mitchell, AZ</td>
+                  <td>85</td>
+                  <td>Curriers, NM</td>
+                  <td>08/13/2020</td>
+                  <td>Full</td>
+                  <td>Van Air-Ride</td>
+                  <td>4,092</td>
+                  <td>-</td>
+                  <td>
+                    <span>Load info</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>00:00</td>
+                  <td>Choptank transport, Inc.</td>
+                  <td>08/04/2020</td>
+                  <td>22</td>
+                  <td>Coal Creek,OK</td>
+                  <td>45</td>
+                  <td>Slater,MO</td>
+                  <td>08/14/2020</td>
+                  <td>Full</td>
+                  <td>Van</td>
+                  <td>30,000</td>
+                  <td>-</td>
+                  <td>
+                    <span (click)="routerToLoadInfo()">Load info</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>00:01</td>
+                  <td>Landstar</td>
+                  <td>08/05/2020</td>
+                  <td>59</td>
+                  <td>Sacramento,ME</td>
+                  <td>87</td>
+                  <td>Two Brooks,WI</td>
+                  <td>08/15/2020</td>
+                  <td>Partial</td>
+                  <td>Van w/Team</td>
+                  <td>10,530</td>
+                  <td>$2500.00</td>
+                  <td>
+                    <span>Load info</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>00:01</td>
+                  <td>Landstar</td>
+                  <td>08/06/2020</td>
+                  <td>85</td>
+                  <td>Edgerton,RI</td>
+                  <td>95</td>
+                  <td>Martins Corner,TX</td>
+                  <td>08/16/2020</td>
+                  <td>Full</td>
+                  <td>Van Air-Ride</td>
+                  <td>41,462</td>
+                  <td>$1800.00</td>
+                  <td>
+                    <span>Load info</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>00:01</td>
+                  <td>deBoer Transportatio...</td>
+                  <td>08/07/2020</td>
+                  <td>40</td>
+                  <td>Skookumchuck</td>
+                  <td>23</td>
+                  <td>Montverde,NJ</td>
+                  <td>08/17/2020</td>
+                  <td>Partial</td>
+                  <td>Van</td>
+                  <td>28,038</td>
+                  <td>$4285.00</td>
+                  <td>
+                    <span>Load info</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>00:01</td>
+                  <td>deBoer Transportatio...</td>
+                  <td>08/08/2020</td>
+                  <td>100</td>
+                  <td>Scottsville,KS</td>
+                  <td>49</td>
+                  <td>Farwell,FL</td>
+                  <td>-</td>
+                  <td>Full</td>
+                  <td>Van w/Team</td>
+                  <td>37,828</td>
+                  <td>$1200.00</td>
+                  <td>
+                    <span>Load info</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>00:04</td>
+                  <td>Choptank transport, Inc.</td>
+                  <td>08/09/2020</td>
+                  <td>102</td>
+                  <td>Gaskil,DE</td>
+                  <td>96</td>
+                  <td>Merrimac South,AL</td>
+                  <td>08/19/2020</td>
+                  <td>Full</td>
+                  <td>Van</td>
+                  <td>42,270</td>
+                  <td>$900.00</td>
+                  <td>
+                    <span>Load info</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>00:04</td>
+                  <td>Landstar</td>
+                  <td>08/10/2020</td>
+                  <td>53</td>
+                  <td>Bent Pine,VA</td>
+                  <td>87</td>
+                  <td>Edgerton,RI</td>
+                  <td>-</td>
+                  <td>Partial</td>
+                  <td>Van Air-Ride</td>
+                  <td>38,725</td>
+                  <td>$750.00</td>
+                  <td>
+                    <span>Load info</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>00:04</td>
+                  <td>Landstar</td>
+                  <td>08/11/2020</td>
+                  <td>45</td>
+                  <td>Brentwood,MT</td>
+                  <td>12</td>
+                  <td>Del Rey Oaks,RI</td>
+                  <td>-</td>
+                  <td>Full</td>
+                  <td>Van w/Team</td>
+                  <td>42,665</td>
+                  <td>$800.00</td>
+                  <td>
+                    <span>Load info</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>00:04</td>
+                  <td>deBoer Transportatio...</td>
+                  <td>08/12/2020</td>
+                  <td>87</td>
+                  <td>Emerson,MT</td>
+                  <td>7</td>
+                  <td>Brookhaven,DC</td>
+                  <td>-</td>
+                  <td>Partial</td>
+                  <td>Van Air-Ride</td>
+                  <td>41,286</td>
+                  <td>$1450.00</td>
+                  <td>
+                    <span>Load info</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>00:04</td>
+                  <td>deBoer Transportatio...</td>
+                  <td>08/13/2020</td>
+                  <td>23</td>
+                  <td>Longview,MA</td>
+                  <td>19</td>
+                  <td>Farmington Lake,OK</td>
+                  <td>-</td>
+                  <td>Partial</td>
+                  <td>Van Air-Ride</td>
+                  <td>29,532</td>
+                  <td>-</td>
+                  <td>
+                    <span>Load info</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>00:04</td>
+                  <td>Choptank transport, Inc.</td>
+                  <td>08/14/2020</td>
+                  <td>87</td>
+                  <td>Willow Run,IL</td>
+                  <td>23</td>
+                  <td>Pickerel Narrows,MT</td>
+                  <td>08/24/2020</td>
+                  <td>Partial</td>
+                  <td>Van</td>
+                  <td>12,138</td>
+                  <td>$2500.00</td>
+                  <td>
+                    <span>Load info</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>00:04</td>
+                  <td>Landstar</td>
+                  <td>08/15/2020</td>
+                  <td>37</td>
+                  <td>Joliet,IL</td>
+                  <td>29</td>
+                  <td>Locbourne</td>
+                  <td>-</td>
+                  <td>Full</td>
+                  <td>Van w/Team</td>
+                  <td>34,943</td>
+                  <td>$1200.00</td>
+                  <td>
+                    <span>Load info</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>00:04</td>
+                  <td>Landstar</td>
+                  <td>08/15/2020</td>
+                  <td>37</td>
+                  <td>Joliet,IL</td>
+                  <td>29</td>
+                  <td>Locbourne</td>
+                  <td>-</td>
+                  <td>Full</td>
+                  <td>Van w/Team</td>
+                  <td>34,943</td>
+                  <td>$1200.00</td>
+                  <td>
+                    <span>Load info</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>00:04</td>
+                  <td>Landstar</td>
+                  <td>08/15/2020</td>
+                  <td>37</td>
+                  <td>Joliet,IL</td>
+                  <td>29</td>
+                  <td>Locbourne</td>
+                  <td>-</td>
+                  <td>Full</td>
+                  <td>Van w/Team</td>
+                  <td>34,943</td>
+                  <td>$1200.00</td>
+                  <td>
+                    <span>Load info</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>00:04</td>
+                  <td>Landstar</td>
+                  <td>08/15/2020</td>
+                  <td>37</td>
+                  <td>Joliet,IL</td>
+                  <td>29</td>
+                  <td>Locbourne</td>
+                  <td>-</td>
+                  <td>Full</td>
+                  <td>Van w/Team</td>
+                  <td>34,943</td>
+                  <td>$1200.00</td>
+                  <td>
+                    <span>Load info</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>00:04</td>
+                  <td>Landstar</td>
+                  <td>08/15/2020</td>
+                  <td>37</td>
+                  <td>Joliet,IL</td>
+                  <td>29</td>
+                  <td>Locbourne</td>
+                  <td>-</td>
+                  <td>Full</td>
+                  <td>Van w/Team</td>
+                  <td>34,943</td>
+                  <td>$1200.00</td>
+                  <td>
+                    <span>Load info</span>
+                  </td>
+                </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="load-board__right">
+            <div class="load-board__colrow">
+              <div class="load-board__colrow-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <span>Columns</span>
+            </div>
+            <div class="load-board__filter">
+              <svg width="10" height="14" viewBox="0 0 10 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.49219 6.26112L1.49219 6.26112L2.99219 8.6552L5.49219 8.6552L9.49219 12.4857L9.49219 1.95178L4.49219 6.26112Z" stroke="#556674"/>
+              </svg>
+              <span>Filters</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  </div>

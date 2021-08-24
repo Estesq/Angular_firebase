@@ -1,0 +1,80 @@
+<!--Confirm Email Starts-->
+<section id="confirm-email">
+  <div class="row auth-height full-height-vh m-0 d-flex align-items-center justify-content-center">
+    <div class="col-md-7 col-12">
+      <div class="card overflow-hidden">
+        <div class="card-content">
+          <div class="card-body auth-img">
+            <div class="row m-0">
+              <div class="col-md-12 px-4 py-3">
+                <h4 class="mb-2 card-title">Confirm Email {{currentUser.email}}</h4>
+                <ngx-spinner></ngx-spinner>
+                <div *ngIf="!isConfirmFailed && !(isInvitedUser && isConfirmed)">
+                  <p class="card-text mb-3">A confirmation message has been sent to your email {{ email }}</p>
+                  <form [formGroup]="confirmForm">
+                    <div class="form-group">
+                      <input type="text" formControlName="email" class="form-control" placeholder="Verification email"
+                        [ngClass]="{ 'is-invalid': confirmFormSubmitted && cf.email.invalid, 'is-valid': confirmFormSubmitted && !cf.email.invalid }"
+                        required>
+                      <div *ngIf="confirmFormSubmitted && (cf.email.invalid || cf.email.errors?.required)"
+                        class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i> This is
+                        required</div>
+                    </div>
+                    <div class="form-group">
+                      <input type="text" formControlName="code" class="form-control" placeholder="Verification code"
+                        [ngClass]="{ 'is-invalid': confirmFormSubmitted && cf.code.invalid, 'is-valid': confirmFormSubmitted && !cf.code.invalid }"
+                        required>
+                      <div *ngIf="confirmFormSubmitted && (cf.code.invalid || cf.code.errors?.required)"
+                        class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i> This is
+                        required</div>
+                    </div>
+                    <div class="d-flex justify-content-between flex-sm-row flex-column">
+                      <a  class="btn btn-primary" (click)="onConfirm()">Confirm email</a>
+                    </div>
+                  </form>
+                  <div *ngIf="error" class="help-block mt-1 text-danger">
+                    <i class="ft-alert-circle align-middle"></i> {{error}}
+                  </div>
+                </div>
+                <div *ngIf="isConfirmFailed && !isConfirmed">
+                  <p class="card-text mb-3">Please enter your email address and we'll send you new confirm code.</p>
+                  <form [formGroup]="reConfirmForm">
+                    <div class="form-group">
+                      <input type="text" formControlName="email" class="form-control" placeholder="Email"
+                        [ngClass]="{ 'is-invalid': reConfirmFormSubmitted && lf.email.invalid, 'is-valid': reConfirmFormSubmitted && !lf.email.invalid }"
+                        required>
+                      <div *ngIf="reConfirmFormSubmitted && (lf.email.invalid || lf.email.errors?.required)"
+                        class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i> This is
+                        required</div>
+                    </div>
+                    <div class="d-flex justify-content-between flex-sm-row flex-column">
+                      <a  [routerLink]="['/pages/login']" class="btn bg-light-primary mb-2 mb-sm-0">Back To Login</a>
+                      <a  class="btn btn-primary" (click)="onSubmit()">Resend code</a>
+                    </div>
+                  </form>
+                  <div *ngIf="error" class="help-block mt-1 text-danger">
+                    <i class="ft-alert-circle align-middle"></i> {{error}}
+                  </div>
+                </div>
+                <div *ngIf="isInvitedUser && isConfirmed">
+                  <p class="card-text mb-3">Please confirm this is the company you are associated with!</p>
+                  <p class="card-text mb-3">{{currentUser.company.address}}</p>
+                  <p class="card-text mb-3">{{currentUser.company.city}}, {{currentUser.company.state}} {{currentUser.company.zip}}</p>
+                  <p class="card-text mb-3">MC #{{currentUser.company.mc}}</p>
+                  <div class="d-flex justify-content-between flex-sm-row flex-column">
+                    <a  [routerLink]="['/pages/login']" class="btn bg-light-primary mb-2 mb-sm-0">Cancel</a>
+                    <a  class="btn btn-primary" (click)="onCompanyCorrect()">Correct</a>
+                  </div>
+                  <div *ngIf="error" class="help-block mt-1 text-danger">
+                    <i class="ft-alert-circle align-middle"></i> {{error}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Forgot Password Ends-->

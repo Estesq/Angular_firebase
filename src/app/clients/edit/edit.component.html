@@ -1,0 +1,200 @@
+<section id="basic-hidden-label-form-layouts">
+  <div class="row match-height">
+    <!-- Basic Form starts -->
+    <div class="col-lg-6 col-12">
+      <form [formGroup]="companyForm">
+        <div class="card">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-md-4">
+                <a class="btn btn-link" >Status</a>
+                <a class="btn btn-link" (click)="onSubmit()">Pending</a>
+              </div>
+              <div class="col-md-4">
+                <div class="custom-switch custom-control-inline mb-1 mb-xl-0">
+                  <input type="checkbox" class="custom-control-input" id="custom-switch-2">
+                  <label class="custom-control-label mr-1" for="custom-switch-2">
+                    <span>Inactive</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="col-md-4">
+                <a class="btn btn-link" >Cancel</a>
+                <a class="btn btn-link" (click)="onSubmit()">Save</a>
+              </div>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <label>
+                        Company name
+                      </label>
+                      <div class="form-group">
+                        <input type="text"
+                               formControlName="name"
+                               class="form-control mb-2"
+                               placeholder="Company name"
+                               [formControl]="companyForm.controls['name']">
+                      </div>
+                    </div>
+                    <div class="col-md-8">
+                      <label>
+                        Address
+                      </label>
+                      <div class="form-group">
+                        <input type="text" [formControl]="companyForm.controls['address']" formControlName="address" class="form-control mb-2" placeholder="address" >
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label>
+                        MC/FF
+                      </label>
+                      <div class="form-group">
+                        <input type="text" [formControl]="companyForm.controls['mc']" formControlName="mc" class="form-control mb-2" placeholder="MC/FF #" >
+                      </div>
+                    </div>
+<!--                    <div class="col-md-8">-->
+<!--                      <label>-->
+<!--                        Street 2?-->
+<!--                      </label>-->
+<!--                      <div class="form-group">-->
+<!--                        <input type="text" [formControl]="companyForm.controls['street2']" formControlName="street2" class="form-control mb-2" placeholder="Street 2">-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-4">-->
+<!--                      <label>-->
+<!--                        FEIN / SSN-->
+<!--                      </label>-->
+<!--                      <div class="form-group">-->
+<!--&lt;!&ndash;                        <input type="text" [formControl]="companyForm.controls['ssn']" formControlName="ssn" class="form-control mb-2" placeholder="FEIN / SSN">&ndash;&gt;-->
+<!--                      </div>-->
+<!--                    </div>-->
+                    <div class="col-md-8">
+                      <label>
+                        City
+                      </label>
+                      <div class="form-group">
+                        <input type="text" [formControl]="companyForm.controls['city']" formControlName="city" class="form-control mb-2" placeholder="City" >
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label>
+                        Us Dot
+                      </label>
+                      <div class="form-group">
+                        <input type="text" [formControl]="companyForm.controls['dot']" formControlName="dot" class="form-control mb-2" placeholder="Us Dot">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label>
+                        State
+                      </label>
+                      <div class="form-group">
+                        <input type="text" [formControl]="companyForm.controls['state']" formControlName="state" class="form-control mb-2" placeholder="State">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label>
+                        Zip
+                      </label>
+                      <div class="form-group">
+                        <input type="text" [formControl]="companyForm.controls['zip']" formControlName="zip" class="form-control mb-2" placeholder="Zip">
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label>
+                        SCAS
+                      </label>
+                      <div class="form-group">
+                        <input type="text" [formControl]="companyForm.controls['scas']" formControlName="scas" class="form-control mb-2" placeholder="SCAS">
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <label>
+                        Fax
+                      </label>
+                      <div class="form-group">
+                        <input type="text" [formControl]="companyForm.controls['fax']" formControlName="fax" class="form-control mb-2" placeholder="Fax">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="col-md-12">
+                    <label>
+                      Contact person name
+                    </label>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        formControlName="contactPersonName"
+                        class="form-control mb-2"
+                        placeholder="Name"
+                        [formControl]="companyForm.controls['contactPersonName']"
+                      >
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <label>
+                      Mobile phone
+                    </label>
+                    <div class="form-group">
+                      <input type="text" [formControl]="companyForm.controls['mobilePhone']" formControlName="mobilePhone" class="form-control mb-2" placeholder="Phone" >
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <label>
+                      Cell phone
+                    </label>
+                    <div class="form-group">
+                      <input type="text" [formControl]="companyForm.controls['cellPhone']" formControlName="cellPhone" class="form-control mb-2" placeholder="Cell phone">
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <label>
+                      Email
+                    </label>
+                    <div class="form-group">
+                      <input type="text" [formControl]="companyForm.controls['email']" formControlName="email" class="form-control mb-2" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <label>
+                      Contact person position
+                    </label>
+                    <div class="form-group">
+                      <input type="text" [formControl]="companyForm.controls['contactPersonPosition']" formControlName="contactPersonPosition" class="form-control mb-2" placeholder="Position">
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="card">
+        <div class="card-footer">
+<!--          <a class="btn btn-primary" [routerLink]="['../../create']">-->
+<!--            Invite Client-->
+<!--          </a>-->
+
+          <button class="btn btn-link" [routerLink]="['../../staff']">
+            Company users
+          </button>
+
+        </div>
+      </div>
+    </div>
+    <ng-template #loading>
+      <p class="text-center " ><i class="ft-rotate-cw spinner"></i> {{'Downloading data' | translate}}...</p>
+    </ng-template>
+    <!-- Basic Form ends -->
+
+  </div>
+</section>

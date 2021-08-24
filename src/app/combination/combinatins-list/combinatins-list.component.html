@@ -1,0 +1,89 @@
+<div class="truck-list">
+  <div class="truck-list__search">
+    <fieldset class="form-group position-relative has-icon-right mb-0">
+      <input type="text" class="form-control" placeholder="Search Trucks" />
+      <div class="form-control-position ">
+        <i class="fa fa-search"></i>
+      </div>
+    </fieldset>
+  </div>
+  <div class="truck-list__items truck__items mt-3">
+    <div class="truck__items-head ">
+      <div class="row pl-3">
+        <div class="col-2 pl-4">
+          <span class="truck__items-title">Truck #</span>
+        </div>
+        <div class="col-2">
+          <span class="truck__items-title">Type</span>
+        </div>
+        <div class="col-2">
+          <span class="truck__items-title">Truck Model</span>
+        </div>
+        <div class="col-2">
+          <span class="truck__items-title">Driver name</span>
+        </div>
+        <div class="col-2">
+          <span class="truck__items-title">Trailer</span>
+        </div>
+        <div class="col-2">
+          <span class="truck__items-title">Status</span>
+        </div>
+      </div>
+    </div>
+    <div class="truck__item truck__item--open mb-2" *ngFor="let combination of combinations">
+      <div class="truck__item-show " (click)="openConnect(combination)" [class.truck__item-show--active]="combination == activeCombination">
+        <div class="row align-items-center pl-3">
+          <div class="col-2  font-weight-bolder d-flex align-items-center">
+            <img src="../../../assets/img/svg/truck.svg" alt="">
+            <span class="ml-2">{{combination.truckId}}</span>
+          </div>
+          <div class="col-2 d-flex align-items-center">
+            <span>{{combination.type}}</span>
+          </div>
+          <div class="col-2 d-flex align-items-center">
+            <span>{{combination.truckModel}}</span>
+          </div>
+          <div class="col-2 d-flex align-items-center">
+            <span>{{combination.driverName}}</span>
+          </div>
+          <div class="col-2 d-flex align-items-center">
+            <span>{{combination.trailer}}</span>
+          </div>
+          <div class="col-2 d-flex align-items-center">
+            <span>{{combination.status}}</span>
+          </div>
+          <button class="truck__item-btn">
+            <img src="../../../assets/img/svg/chevron_bottom.svg" alt="">
+          </button>
+        </div>
+      </div>
+      <div class="truck__item-hidden ml-4">
+        <div class="connect-driver">
+          <p class="connect-driver__title">Connected Drivers:</p>
+          <div class="connect-driver__items">
+            <div class="connect-driver__item connect-driver__item--empty mt-2">
+              <span>Drag the driver here to attach it to the truck</span>
+            </div>
+            <div class="connect-driver__item connect-driver__item--empty mt-2">
+              <span>Drag the driver here to attach it to the truck</span>
+            </div>
+          </div>
+        </div>
+        <div class="connect-trailer mt-3">
+          <p class="connect-trailer__title">Connected trailers:</p>
+          <div class="connect-trailer__items">
+            <div class="connect-trailer__item connect-trailer__item--empty mt-2">
+              <span>Drag the trailer here to attach it to the truck</span>
+            </div>
+            <div class="connect-trailer__item connect-trailer__item--empty mt-2">
+              <span>Drag the trailer here to attach it to the truck</span>
+            </div>
+            <div class="connect-trailer__item connect-trailer__item--empty mt-2">
+              <span>Drag the trailer here to attach it to the truck</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

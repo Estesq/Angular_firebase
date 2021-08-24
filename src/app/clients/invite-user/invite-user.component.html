@@ -1,0 +1,42 @@
+<div class="modal-header">
+  <h4 class="modal-title">Invite User</h4>
+  <button
+    type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  >
+    x
+  </button>
+</div>
+<form>
+  <div class="modal-body taskboard-modal">
+    <p>Email:</p>
+    <div class="form-group">
+      <input
+        type="text"
+        formControlName="fullName"
+        class="form-control mb-2"
+        placeholder="Enter client name"
+      />
+    </div>
+  </div>
+  <div class="modal-footer taskboard-modal-footer">
+    <div class="row">
+      <div class="col-2"></div>
+      <div class="col-5">
+        <button
+          type="button"
+          class="btn btn-outline-primary mr-1 mb-1"
+          (click)="activeModal.dismiss('Cross click')"
+        >
+          Cancel
+        </button>
+      </div>
+
+      <div class="col-5">
+        <button class="btn btn-primary btn-save font-size">Save</button>
+      </div>
+    </div>
+  </div>
+</form>

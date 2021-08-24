@@ -1,0 +1,94 @@
+.logo{
+  padding-left: 22px;
+  padding-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+.logo-img{
+  position: relative;
+  width: unset;
+}
+.logo-img--white{
+  opacity: 0.05;
+  position: absolute;
+  top: -120px;
+  left: -110px;
+  width: unset !important;
+
+}
+.logo-text--white{
+  font-size: 21px;
+  color:#fff;
+  font-weight: 700;
+  text-transform: none;
+  font-family: "Roboto";
+}
+
+.nav-back{
+  background: #3D4A55;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  right: 0.8rem;
+  top: 2.3rem;
+  & svg{
+    opacity: 0.35;
+  }
+}
+
+.has-sub.open{
+  background: #3D4A55;
+  & >a{
+    background: #3D4A55;
+  }
+}
+
+.navigation i{
+  opacity: 0.25 !important;
+
+  &.fa.fa-truck{
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+  }
+  &.fa-driver{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    margin-right: 10px;
+    &::before{
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url(../../../assets/img/svg/icon_driver-white.svg);
+    }
+  }
+  &.fa-load{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    margin-right: 10px;
+    &::before{
+      content: "";
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-image: url(../../../assets/img/svg/load-board-icon.svg);
+    }
+  }
+}
+.navigation li ul li a {
+  padding-left: 50px;
+}

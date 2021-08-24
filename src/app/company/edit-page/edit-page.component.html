@@ -1,0 +1,294 @@
+<section id="basic-hidden-label-form-layouts">
+  <div class="row match-height">
+    <!-- Basic Form starts -->
+    <div class="col-lg-9 col-12">
+      <form [formGroup]="companyForm">
+        <div class="card">
+          <div class="card-header">
+            <div class="row">
+              <div class="col-md-3">
+                <label class="status-label">Status</label>
+              </div>
+              <div class="col-md-9">
+                <div class="form-group status custom-switch custom-control-inline mb-1 mb-xl-0">
+                    <div class="custom-control custom-radio m-0">
+                        <input type="radio" formControlName="status" #status required id="customRadioInline1" name="status" class="custom-control-input" value="Pending">
+                        <label class="custom-control-label" for="customRadioInline1">Pending</label>
+                    </div>
+                    <div class="custom-control custom-radio m-0">
+                        <input type="radio" formControlName="status" #status required id="customRadioInline2"  name="status" class="custom-control-input" value="Active">
+                        <label class="custom-control-label" for="customRadioInline2">Active</label>
+                    </div>
+                    <div class="custom-control custom-radio m-0">
+                        <input type="radio" formControlName="status" #status required id="customRadioInline3" checked name="status" class="custom-control-input" value="Blocked">
+                        <label class="custom-control-label" for="customRadioInline3">Blocked</label>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-content">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="row">
+                    <div class="col-md-9">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <label>
+                            Company name
+                          </label>
+                          <div class="form-group">
+                            <input type="text" formControlName="name" class="form-control mb-2" placeholder="Company name"
+                            [ngClass]="{ 'is-invalid': companyFormSubmitted && cf.name.invalid, 'is-valid': companyFormSubmitted && !cf.name.invalid }"
+                            required>
+                            <div *ngIf="companyFormSubmitted && (cf.name.invalid || cf.name.errors?.required)"
+                                 class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i>
+                                 Company name is required
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-8">
+                          <label>
+                            Street
+                          </label>
+                          <div class="form-group">
+                            <input type="text" formControlName="address" class="form-control mb-2" placeholder="address"
+                            [ngClass]="{ 'is-invalid': companyFormSubmitted && cf.address.invalid, 'is-valid': companyFormSubmitted && !cf.address.invalid }"
+                            required>
+                            <div *ngIf="companyFormSubmitted && (cf.address.invalid || cf.address.errors?.required)"
+                                class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i>
+                                Street is required
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <label>
+                            MC/FF
+                          </label>
+                          <div class="form-group">
+                          <input type="text" formControlName="mc" class="form-control mb-2" placeholder="MC/FF #"
+                          [ngClass]="{ 'is-invalid': companyFormSubmitted && cf.mc.invalid, 'is-valid': companyFormSubmitted && !cf.mc.invalid }"
+                          >
+                          <div *ngIf="companyFormSubmitted && (cf.mc.invalid || cf.mc.errors?.required)"
+                                class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i>
+                                MC/FF is required
+                          </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-8">
+                          <label>
+                            Street 2
+                          </label>
+                          <div class="form-group">
+                            <input type="text" formControlName="address2" class="form-control mb-2" placeholder="Street 2"
+                            [ngClass]="{ 'is-invalid': companyFormSubmitted && cf.address2.invalid, 'is-valid': companyFormSubmitted && !cf.address2.invalid }"
+                            >
+                            <div *ngIf="companyFormSubmitted && (cf.address2.invalid || cf.address2.errors?.required)"
+                                 class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i>
+                                 Street 2 is required
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <label>
+                            FEIN / SSN
+                          </label>
+                          <div class="form-group">
+                            <input type="text" formControlName="ssn" class="form-control mb-2" placeholder="FEIN / SSN"
+                            [ngClass]="{ 'is-invalid': companyFormSubmitted && cf.ssn.invalid, 'is-valid': companyFormSubmitted && !cf.ssn.invalid }"
+                            required>
+                            <div *ngIf="companyFormSubmitted && (cf.ssn.invalid || cf.ssn.errors?.required)"
+                                 class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i>
+                                 FEIN / SSN is required
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-8">
+                          <label>
+                            City
+                          </label>
+                          <div class="form-group">
+                            <input type="text" formControlName="city" class="form-control mb-2" placeholder="City"
+                            [ngClass]="{ 'is-invalid': companyFormSubmitted && cf.city.invalid, 'is-valid': companyFormSubmitted && !cf.city.invalid }"
+                            required>
+                            <div *ngIf="companyFormSubmitted && (cf.city.invalid || cf.city.errors?.required)"
+                                 class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i>
+                                 City is required
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <label>
+                            Us Dot
+                          </label>
+                          <div class="form-group">
+                            <input type="text" formControlName="dot" class="form-control mb-2" placeholder="Us Dot"
+                            [ngClass]="{ 'is-invalid': companyFormSubmitted && cf.dot.invalid, 'is-valid': companyFormSubmitted && !cf.dot.invalid }"
+                            >
+                            <div *ngIf="companyFormSubmitted && (cf.dot.invalid || cf.dot.errors?.required)"
+                                 class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i>
+                                 Us Dot is required
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-6">
+                          <label>
+                            Zip
+                          </label>
+                          <div class="form-group">
+                            <input type="text" formControlName="zip" class="form-control mb-2" placeholder="Zip"
+                            [ngClass]="{ 'is-invalid': companyFormSubmitted && cf.zip.invalid, 'is-valid': companyFormSubmitted && !cf.zip.invalid }"
+                            required>
+                            <div *ngIf="companyFormSubmitted && (cf.zip.invalid || cf.zip.errors?.required)"
+                                 class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i>
+                                 Zip is required
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <label>
+                            SCAS
+                          </label>
+                          <div class="form-group">
+                            <input type="text" formControlName="scas" class="form-control mb-2" placeholder="SCAS"
+                            [ngClass]="{ 'is-invalid': companyFormSubmitted && cf.scas.invalid, 'is-valid': companyFormSubmitted && !cf.scas.invalid }"
+                            >
+                            <div *ngIf="companyFormSubmitted && (cf.scas.invalid || cf.scas.errors?.required)"
+                                 class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i>
+                                 SCAS is required
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <label>
+                            Comments
+                          </label>
+                          <div class="form-group">
+                            <textarea formControlName="comments" class="comments form-control mb-2" placeholder="Comments"></textarea>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <label>
+                            Client ID
+                          </label>
+                          <div class="form-group">
+                            <input type="text" formControlName="clientId" class="form-control mb-2" placeholder="ID">
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <label>
+                            Name
+                          </label>
+                          <div class="form-group">
+                            <input type="text" formControlName="contactPersonName" class="form-control mb-2" placeholder="Name"
+                            [ngClass]="{ 'is-invalid': companyFormSubmitted && cf.contactPersonName.invalid, 'is-valid': companyFormSubmitted && !cf.contactPersonName.invalid }"
+                            required>
+                            <div *ngIf="companyFormSubmitted && (cf.contactPersonName.invalid || cf.contactPersonName.errors?.required)"
+                                class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i>
+                                Name is required
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <label>
+                            Phone
+                          </label>
+                          <div class="form-group">
+                          <input type="text" formControlName="mobilePhone" class="form-control mb-2" placeholder="Phone"
+                            [ngClass]="{ 'is-invalid': companyFormSubmitted && cf.mobilePhone.invalid, 'is-valid': companyFormSubmitted && !cf.mobilePhone.invalid }"
+                            required>
+                            <div *ngIf="companyFormSubmitted && (cf.mobilePhone.invalid || cf.mobilePhone.errors?.required)"
+                                class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i>
+                              Phone number is required
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <label>
+                            Cell Phone
+                          </label>
+                          <div class="form-group">
+                          <input type="text" formControlName="cellPhone" class="form-control mb-2" placeholder="Cell Phone"
+                            [ngClass]="{ 'is-invalid': companyFormSubmitted && cf.cellPhone.invalid, 'is-valid': companyFormSubmitted && !cf.cellPhone.invalid }"
+                            >
+                            <div *ngIf="companyFormSubmitted && (cf.cellPhone.invalid || cf.cellPhone.errors?.required)"
+                                class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i>
+                              Cell Phone number is required
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <label>
+                            Email
+                          </label>
+                          <div class="form-group">
+                            <input type="text" formControlName="email" class="form-control mb-2" placeholder="Email"
+                              [ngClass]="{ 'is-invalid': companyFormSubmitted && cf.email.invalid, 'is-valid': companyFormSubmitted && !cf.email.invalid }"
+                              required>
+                            <div *ngIf="companyFormSubmitted && (cf.email.errors?.required)" class="help-block mt-1 text-danger">
+                              <i class="ft-alert-circle align-middle"></i> Email is required
+                            </div>
+                            <div *ngIf="companyFormSubmitted &&  cf.email.errors?.email" class="help-block mt-1 text-danger">
+                              <i class="ft-alert-circle align-middle"></i> Email must be a valid email address
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <label>
+                            Fax
+                          </label>
+                          <div class="form-group">
+                            <input type="text" formControlName="fax" class="form-control mb-2" placeholder="Fax">
+                          </div>
+                          <label>
+                            Position
+                          </label>
+                          <div class="form-group">
+                            <input type="text" formControlName="contactPersonPosition" class="form-control mb-2" placeholder="Position">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex justify-content-between flex-sm-row flex-column">
+                <a class="btn bg-light-primary">Cancel</a>
+                <a class="btn btn-primary" (click)="onSubmit()">Save</a>
+              </div>
+              <div class="d-flex justify-content-between flex-sm-row flex-column">
+                <a href="/company/list">Company Users</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <!-- Basic Form ends -->
+  </div>
+</section>

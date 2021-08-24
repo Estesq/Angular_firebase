@@ -1,0 +1,384 @@
+<div class="container-fluid contain">
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-3">
+          <h2 class="card-title">Trucks</h2>
+        </div>
+        <div class="col-6"></div>
+        <div class="col-3">
+          <button
+            type="button"
+            class="btn btn-secondary btn-block mr-1 mb-1 btn-primaryInvite"
+            (click)="createTruck()"
+          >
+            <i class="ft-user-plus"></i>
+
+            <span class="font-padding">Add Truck</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-8">
+      <div class="card">
+        <div class="card-header">
+          <div class="row">
+            <div class="col-12">
+              <fieldset class="form-group position-relative has-icon-left">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="iconLeft2"
+                  placeholder="Search"
+                />
+                <div class="form-control-position">
+                  <i class="fa fa-search"></i>
+                </div>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-sm m-0 table-bordered">
+              <thead class="thead-light">
+                <tr>
+                  <th>Truck #</th>
+                  <th>Make</th>
+                  <th>Model</th>
+                  <th>Odometer</th>
+                  <th>GPS Type</th>
+                  <th>GPS Unit #</th>
+                  <th>Driver</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let truck of data; let idx = index">
+                <tr style="cursor: pointer" (click)="selectId(truck)">
+                  <td class="p-0 text-center">{{ truck.companyId }}</td>
+                  <td class="p-0 text-center">{{ truck.number }}</td>
+                  <td class="p-0 text-center">
+                    {{ truck.mark }}
+                  </td>
+                  <td class="p-0 text-center">{{ truck.type }}</td>
+                  <td class="p-0 text-center">{{ truck.model }}</td>
+                  <td class="p-0 text-center">{{ truck.plates }}</td>
+                  <td class="p-0 text-center">{{ truck.engineSerial }}</td>
+                  <td class="p-0 text-center">{{ truck.hutOfAxles }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="card">
+        <div class="card-content">
+          <div class="card-body table-responsive card-body-data">
+            <form action="" [formGroup]="truckForm">
+              <div class="row" *ngIf="displayData; data">
+                <div class="col-12">
+                  <h4>{{ selectedTrucks?.model }}</h4>
+                </div>
+                <div class="col-12">
+                  <fieldset class="form-group">
+                    <br />
+                    <span> <h6>Truck #:</h6> </span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="basicInput"
+                      formControlName="model"
+                    />
+                  </fieldset>
+                </div>
+                <div class="col-12">
+                  <fieldset class="form-group">
+                    <span> <h6>Make:</h6> </span>
+                    <input type="text" class="form-control" id="basicInput" />
+                  </fieldset>
+                </div>
+                <div class="col-12">
+                  <fieldset class="form-group">
+                    <span> <h6>Model:</h6> </span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="basicInput"
+                      formControlName="model"
+                    />
+                  </fieldset>
+                </div>
+                <div class="col-12">
+                  <fieldset class="form-group">
+                    <span> <h6>Odometer:</h6> </span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="basicInput"
+                      formControlName="odometrState"
+                    />
+                  </fieldset>
+                </div>
+                <div class="col-12">
+                  <fieldset class="form-group">
+                    <span> <h6>GPS Type:</h6> </span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="basicInput"
+                      formControlName="gpsType"
+                    />
+                  </fieldset>
+                </div>
+                <div class="col-12">
+                  <fieldset class="form-group">
+                    <span> <h6>GPS Unit #:</h6> </span>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="basicInput"
+                      formControlName="gpsDeviceId"
+                    />
+                  </fieldset>
+                </div>
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-8">
+                      <fieldset class="form-group">
+                        <span> <h6>Driver:</h6> </span>
+                        <input
+                          type="text"
+                          class="form-control muted-input"
+                          id="basicInput"
+                          formControlName="color"
+                        />
+                      </fieldset>
+                    </div>
+                    <div class="col-4">
+                      <button
+                        type="button"
+                        class="btn btn-info btn-primary-manage mr-1 mb-1"
+                      >
+                        <span class="font-padding">Manage</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <fieldset class="form-group position-relative has-icon-right">
+                    <div class="form-group">
+                      <ng-select
+                        [items]="status"
+                        bindLabel="name"
+                        placeholder="Select status"
+                      >
+                      </ng-select>
+                    </div>
+                  </fieldset>
+                </div>
+                <br />
+                <br />
+                <div class="col-12">
+                  <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-5">
+                      <button
+                        type="button"
+                        class="btn btn-outline-secondary white-button mr-1 mb-1"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                    <div class="col-5">
+                      <button
+                        type="button"
+                        class="btn btn-success mr-1 mb-1 green-button"
+                      >
+                        Save
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="text-select-center" *ngIf="!displayData">
+              <p>
+                Select the user from the table to view or edit its information
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>
+
+<!--
+
+
+<section>
+  <div class="row">
+    <div class="col-md-9">
+           <h2 class="card-title">Trucks List </h2>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-header">
+              <div class="row">
+                <div class="col-md-6">
+                  <fieldset class="form-group position-relative has-icon-right">
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="iconLeft2"
+                      placeholder="Search by truck id"
+                      [(ngModel)]="id"
+                    />
+                    <div class="form-control-position">
+                      <i class="fa fa-search"></i>
+                    </div>
+                  </fieldset>
+                  <h2>TEST {{ data.length }}</h2>
+
+                  <span *ngIf="currentUser"
+                    >company - {{ currentUser.company | json }}</span
+                  >
+                  <span *ngIf="currentUser"
+                    >companyId - {{ currentUser.companyId | json }}</span
+                  >
+                  <span *ngIf="currentUser">id - {{ currentUser.id }}</span>
+                  <span *ngIf="currentUser">uId - {{ currentUser.uId }}</span>
+                </div>
+                <div class="col-md-6">
+                  <div class="btn-group" role="group">
+                    <button
+                      type="button"
+                      class="btn mb-1 mr-1"
+                      *ngIf="
+                        truckStatus !== 'Active' && truckStatus !== 'Blocked'
+                      "
+                      [ngClass]="{
+                        'btn-dark': truckStatus === 'Pending',
+                        'btn-light': truckStatus != 'Pending'
+                      }"
+                      (click)="selectTruckByStatus('Pending')"
+                    >
+                      Pending
+                    </button>
+                    <button
+                      *ngIf="
+                        truckStatus !== 'Pending' && truckStatus !== 'Blocked'
+                      "
+                      type="button"
+                      class="btn mb-1 mr-1"
+                      [ngClass]="{
+                        'btn-dark': truckStatus === 'Active',
+                        'btn-light': truckStatus != 'Active'
+                      }"
+                      (click)="selectTruckByStatus('Active')"
+                    >
+                      Active
+                    </button>
+                    <button
+                      type="button"
+                      class="btn mb-1 mr-1"
+                      *ngIf="
+                        truckStatus !== 'Active' && truckStatus !== 'Pending'
+                      "
+                      [ngClass]="{
+                        'btn-dark': truckStatus === 'Blocked',
+                        'btn-light': truckStatus != 'Blocked'
+                      }"
+                      (click)="selectTruckByStatus('Blocked')"
+                    >
+                      Blocked
+                    </button>
+                    <button
+                      *ngIf="truckStatus !== ''"
+                      type="button"
+                      class="btn btn-dark-outline mb-1 mr-1"
+                      (click)="selectTruckByStatus('')"
+                    >
+                      Clear filter
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table m-1 table-hover">
+                    <thead class="thead-dark">
+                      <tr>
+                                             <th class="p-0 text-center">Company</th>
+                        <th class="p-0 text-center">Company Id</th>
+                        <th class="p-0 text-center">Truck number</th>
+                        <th class="p-0 text-center">Mark</th>
+                        <th class="p-0 text-center">Type</th>
+                        <th class="p-0 text-center">Model</th>
+                        <th class="p-0 text-center">Odometer</th>
+                        <th class="p-0 text-center">GPS</th>
+                        <th class="p-0 text-center">Status</th>
+                        <th class="p-0 text-center">PostingCard</th>
+                        <th class="p-0 text-center">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody
+                      *ngFor="
+                        let truck of data
+                          | truckSearchPipe: id
+                          | truckStatusSearchPipe: truckStatus;
+                        let idx = index
+                      "
+                    >
+                      <tr (click)="selectId(truck.id)" style="hower: cursor">
+                                             <td class="p-0 text-center">{{truck.Company.id}}</td>
+                        <td class="p-0 text-center">{{ truck.companyId }}</td>
+                        <td class="p-0 text-center">{{ truck.number }}</td>
+                        <td class="p-0 text-center">{{ truck.mark }}</td>
+                        <td class="p-0 text-center">{{ truck.type }}</td>
+                        <td class="p-0 text-center">{{ truck.model }}</td>
+                        <td class="p-0 text-center">
+                          {{ truck.odometrDirections }}
+                        </td>
+                        <td class="p-0 text-center">{{ truck.gpsType }}</td>
+                        <td class="p-0 text-center">{{ truck.status }}</td>
+                        <td>
+                          <div>
+                            <a class="success" (click)="createPostCard(truck)">
+                              <i class="fa fa-clock-o font-medium-3"></i>
+                            </a>
+                          </div>
+                        </td>
+                        <td>
+                          <div>
+                            <a class="danger" (click)="deleteTruck(truck.id)">
+                              <i class="ft-trash font-medium-3"></i>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <app-truck-info [data]="selected"></app-truck-info>
+    </div>
+  </div>
+</section> -->

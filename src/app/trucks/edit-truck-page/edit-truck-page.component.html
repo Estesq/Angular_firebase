@@ -1,0 +1,35 @@
+<div class="card-body">
+  <ul ngbNav #basicnav="ngbNav" [(activeId)]="active" class="nav-tabs">
+    <li [ngbNavItem]="1">
+      <a ngbNavLink>Truck Info</a>
+      <ng-template ngbNavContent>
+        <app-create-truck></app-create-truck>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+      <a ngbNavLink>Driver</a>
+      <ng-template ngbNavContent>
+        <app-truck-driver></app-truck-driver>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="3">
+      <a ngbNavLink>Trailer</a>
+      <ng-template ngbNavContent>
+        <app-truck-trailer></app-truck-trailer>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="4">
+      <a ngbNavLink>Files</a>
+      <ng-template ngbNavContent>
+        Files
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="5">
+      <a ngbNavLink>Notes</a>
+      <ng-template ngbNavContent>
+        Notes
+      </ng-template>
+    </li>
+  </ul>
+  <div [ngbNavOutlet]="basicnav" class="mt-2"></div>
+</div>

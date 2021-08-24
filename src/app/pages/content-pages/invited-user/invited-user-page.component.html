@@ -1,0 +1,126 @@
+<!--Confirm Email Starts-->
+<section id="invited-user">
+  <div class="row auth-height full-height-vh m-0">
+    <div class="col-12 d-flex align-items-center justify-content-center">
+      <div class="card overflow-hidden">
+        <div class="card-content">
+          <div class="card-body" style="width: 800px;">
+            <form [formGroup]="inviteForm">
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <h4 class="card-title mb-2">
+                    <i class="fa dash2-user"></i>
+                    Create a New User
+                  </h4>
+                </div>
+                <ngx-spinner></ngx-spinner>
+                <div class="col-md-6">
+                  <label>
+                    First Name
+                  </label>
+                  <div class="form-group">
+                    <input type="text" formControlName="firstName" class="form-control" placeholder="First Name"
+                      [ngClass]="{ 'is-invalid': inviteFormSubmitted && cf.firstName.invalid, 'is-valid': inviteFormSubmitted && !cf.firstName.invalid }"
+                      required>
+                    <div *ngIf="inviteFormSubmitted && (cf.firstName.invalid || cf.firstName.errors?.required)"
+                      class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i> This is
+                      required</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label>
+                    Last Name
+                  </label>
+                  <div class="form-group">
+                    <input type="text" formControlName="lastName" class="form-control" placeholder="Last Name"
+                      [ngClass]="{ 'is-invalid': inviteFormSubmitted && cf.lastName.invalid, 'is-valid': inviteFormSubmitted && !cf.lastName.invalid }"
+                      required>
+                    <div *ngIf="inviteFormSubmitted && (cf.lastName.invalid || cf.lastName.errors?.required)"
+                      class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i> This is
+                      required</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label>
+                    Phone Number
+                  </label>
+                  <div class="form-group">
+                    <input type="text" formControlName="phoneNumber" class="form-control" placeholder="Phone Number"
+                      [ngClass]="{ 'is-invalid': inviteFormSubmitted && cf.phoneNumber.invalid, 'is-valid': inviteFormSubmitted && !cf.phoneNumber.invalid }"
+                      required>
+                    <div *ngIf="inviteFormSubmitted && (cf.phoneNumber.invalid || cf.phoneNumber.errors?.required)"
+                      class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i> This is
+                      required</div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label>
+                    Email / User name
+                  </label>
+                  <div class="form-group">
+                    <input type="email" formControlName="email" class="form-control mb-2" placeholder="Email / User name" disabled>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label>
+                    Password
+                  </label>
+                  <div class="form-group">
+                    <input type="password" formControlName="password" class="form-control mb-2" placeholder="Password"
+                          [ngClass]="{ 'is-invalid': inviteFormSubmitted && cf.password.invalid, 'is-valid': inviteFormSubmitted && !cf.password.invalid }"
+                          required>
+                    <div *ngIf="inviteFormSubmitted && (cf.password.errors?.required)"
+                        class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i> Password is
+                      required
+                    </div>
+                    <div *ngIf="inviteFormSubmitted && (!cf.password.errors?.required && cf.password.errors?.minlength)"
+                        class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i> Password must be
+                      at least 6 characters
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <label>
+                    Confirm Password
+                  </label>
+                  <div class="form-group">
+                    <input type="password" formControlName="confirmPassword" class="form-control mb-2"
+                          placeholder="Confirm Password"
+                          [ngClass]="{ 'is-invalid': inviteFormSubmitted && cf.confirmPassword.invalid, 'is-valid': inviteFormSubmitted && !cf.confirmPassword.invalid }"
+                          required>
+                    <div
+                      *ngIf="inviteFormSubmitted && (cf.confirmPassword.errors?.required)"
+                      class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i> Confirm Password is
+                      required
+                    </div>
+                    <div *ngIf="inviteFormSubmitted && (cf.confirmPassword.errors?.mustMatch)"
+                        class="help-block mt-1 text-danger"> <i class="ft-alert-circle align-middle"></i> Passwords must
+                      match
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="d-flex justify-content-center align-items-center">
+                    <div class="checkbox">
+                      <input type="checkbox" formControlName="isAgree" class="form-control" id="isAgree">
+                      <label for="isAgree"><span class="font-small-2 mb-3 font-weight-normal">you agree to our terms of service and privacy policy</span></label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="d-flex justify-content-center align-items-center">
+                    <a  class="btn btn-primary" (click)="onSubmit()">Create accoount</a>
+                  </div>
+                </div>
+                <div *ngIf="error" class="help-block mt-1 text-danger">
+                  <i class="ft-alert-circle align-middle"></i> {{error}}
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Forgot Password Ends-->

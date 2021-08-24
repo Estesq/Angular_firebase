@@ -1,0 +1,62 @@
+.sendInfo-modal {
+  & .modal-dialog {
+    max-width: unset;
+    width: 1271px;
+    display: block;
+    margin-top: 65px;
+    margin-bottom: 65px;
+  }
+  & .modal-dialog--w853 {
+    width: 853px;
+  }
+  & .btn-close {
+    border: 1px solid #D2D2D2;
+    border-radius: 4px;
+    top: 20px;
+    right: 20px;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    margin: 0;
+    margin-left: auto;
+    & svg {
+      flex-shrink: 0;
+    }
+  }
+  & .modal-header {
+    padding: 20px;
+    border: none;
+  }
+  & .modal-body {
+    padding: 0 20px;
+  }
+  & .modal-footer {
+    border: none;
+    padding: 0 20px;
+    padding-bottom: 20px;
+    margin-top: 14px;
+  }
+  &__title {
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 25px;
+    color: #3B3C3D;
+  }
+  &__cancel,
+  &__send {
+    border: 1px solid #BCBEBE;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #4A5965;
+    margin-right: 12px;
+    width: 112px;
+    height: 36px;
+  }
+  &__send {
+    background: #FFBA55;
+    color: #FFFFFF;
+    border: none;
+  }
+}

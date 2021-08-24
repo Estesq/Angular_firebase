@@ -1,0 +1,50 @@
+label{
+  font-size: 14px;
+  line-height: 16px;
+  color: #3B3C3D;
+  margin-bottom: 6px;
+  text-transform: unset;
+}
+input{
+  background: #FFFFFF;
+  border: 1px solid #BCBEBE;
+  border-radius: 4px;
+  height: 40px;
+}
+
+select{
+  height: 40px;
+  border-color: #BCBEBE;
+}
+
+.admin-info-panel__buttons{
+  margin-top: 110px;
+  & button{
+    width: 112px;
+    height: 36px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    padding: 0;
+  }
+}
+
+.btn-cancel{
+  color: #4A5965;
+  border: 1px solid #BCBEBE;
+}
+.btn-save{
+  background: #3383EC;
+  color:#fff;
+}
+
+.currenUser-name{
+  font-weight: 600;
+  font-size: 18px;
+  color: #3B3C3D;
+
+}

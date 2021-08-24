@@ -1,0 +1,57 @@
+<div class="modal-header pb-0">
+  <h4 class="modal-title">Invite Client</h4>
+  <button
+    type="button"
+    class="close"
+    aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')"
+  >
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16.9497 8.46447L13.4142 12L16.9497 15.5355C17.3386 15.9244 17.3386 16.5608 16.9497 16.9497C16.5608 17.3387 15.9244 17.3387 15.5355 16.9497L12 13.4142L8.46446 16.9497C8.07555 17.3387 7.43915 17.3387 7.05024 16.9497C6.66133 16.5608 6.66133 15.9244 7.05024 15.5355L10.5858 12L7.05024 8.46447C6.66133 8.07556 6.66133 7.43916 7.05024 7.05025C7.43915 6.66134 8.07555 6.66134 8.46446 7.05025L12 10.5858L15.5355 7.05025C15.9244 6.66134 16.5608 6.66134 16.9497 7.05025C17.3386 7.43916 17.3386 8.07556 16.9497 8.46447Z" fill="#96999A"/>
+    </svg>
+
+  </button>
+</div>
+<form>
+  <div class="modal-body taskboard-modal">
+    <p>Email:</p>
+    <div class="form-group ">
+      <input
+        type="text"
+        formControlName="fullName"
+        class="form-control mb-2 "
+        placeholder="Email of a person or company you want to invite"
+      />
+    </div>
+  </div>
+  <div class="modal-footer taskboard-modal-footer">
+    <div class="row m-0">
+      <div class="col-12 p-0">
+        <div class="modal-footer__buttons">
+          <button
+            type="button"
+            class="btn  btn-cancel "
+            (click)="activeModal.dismiss('Cross click')"
+          >
+            Cancel
+          </button>
+          <button class="btn btn-invite font-size">Invite</button>
+        </div>
+      </div>
+<!--      <div class="col-2"></div>-->
+<!--      <div class="col-5 ">-->
+<!--        <button-->
+<!--          type="button"-->
+<!--          class="btn btn-outline-primary mr-1 mb-1"-->
+<!--          (click)="activeModal.dismiss('Cross click')"-->
+<!--        >-->
+<!--          Cancel-->
+<!--        </button>-->
+<!--      </div>-->
+
+<!--      <div class="col-5">-->
+<!--        <button class="btn btn-primary btn-save font-size">Save</button>-->
+<!--      </div>-->
+    </div>
+  </div>
+</form>

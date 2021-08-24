@@ -1,0 +1,29 @@
+<section class="connect">
+  <div class="connect__top">
+    <h1 class="connect__title">Trucks & Trailers Connect </h1>
+  </div>
+  <div class="connect__content d-flex mt-4 justify-content-between">
+    <div class="connect__left w-923">
+      <app-combinatins-list></app-combinatins-list>
+    </div>
+    <div class="connect__right w-750 pl-0 ">
+      <div class="connect__map">
+        <img src="../../../assets/img/trailer-map.jpg" alt="">
+      </div>
+      <div class="free mt-4">
+        <div class="free__tabs d-flex">
+          <div class="free__tab d-flex justify-content-center align-items-center " (click)="changeFreeContent()" [class.free__tab--active]="tabTrailer" >Free Trailers</div>
+          <div class="free__tab  d-flex justify-content-center align-items-center" (click)="changeFreeContent()" [class.free__tab--active]="!tabTrailer">Free Drivers</div>
+        </div>
+        <div class="free__items">
+          <div class="free__drivers"  *ngIf="!tabTrailer">
+            <app-drivers-list></app-drivers-list>
+          </div>
+          <div class="free__trailers" *ngIf="tabTrailer">
+            <app-trailers-list></app-trailers-list>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

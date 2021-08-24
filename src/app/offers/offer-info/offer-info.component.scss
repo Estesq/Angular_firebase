@@ -1,0 +1,15 @@
+.edit {
+  justify-content: right;
+  display: flex;
+
+}
+form {
+  .card-body {
+    ngb-timepicker {
+      width: 100%;
+      .btn.btn-link.ng-star-inserted {
+        display: none;
+      }
+    }
+  }
+}

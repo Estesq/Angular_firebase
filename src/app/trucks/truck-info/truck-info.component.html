@@ -1,0 +1,83 @@
+<!--Dark table starts-->
+<section id="dark">
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-header col-12"></div>
+        <div class="card-content col-12">
+          <button class="btn btn-link" [routerLink]="['../../trucks/create-truck']">
+            Create new truck
+          </button>
+        </div>
+        <div class="card-footer col-12"></div>
+      </div>
+      <div class="card" *ngIf="truck">
+        <div class="card-header" style="background-color: #4A5965">
+          <h6 style="color: white">
+            Truck information
+          </h6>
+        </div>
+        <div class="card-content">
+          <div class="card-body row">
+            <div class="col-12">
+              <b>
+                Truck number:
+              </b>
+              <h6>
+               - {{truck.number}}
+              </h6>
+            </div>
+            <div class="col-12">
+              <b>
+                Truck mark:
+              </b>
+              <h6>
+               - {{truck.mark}}
+              </h6>
+            </div>
+            <div class="col-12">
+              <b>
+                Contact person:
+              </b>
+              <h6>
+              </h6>
+            </div>
+            <div class="col-12">
+              <b>
+                Position:
+              </b>
+              <h6>
+              </h6>
+            </div>
+            <div class="col-12">
+              <b>
+                Phone:
+              </b>
+              <h6>
+              </h6>
+              <b>
+                Cell phone:
+              </b>
+              <h6>
+              </h6>
+              <b>
+                Email:
+              </b>
+              <h6>
+              </h6>
+            </div>
+            <div class="col-12">
+              <b>
+                Comments
+              </b>
+            </div>
+            <a class="btn btn-primary" [routerLink]="['/trucks/edit-truck', truck.id]">
+              More details
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--Dark table Ends-->

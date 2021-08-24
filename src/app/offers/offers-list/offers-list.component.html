@@ -1,0 +1,65 @@
+<section>
+  <div class="row">
+    <div class="col-md-9">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="row">
+              <div class="card-header col-md-6">
+                <fieldset class="form-group position-relative has-icon-right">
+                  <input type="text" class="form-control" id="iconLeft2" placeholder="Search by offer id" [(ngModel)]="id">
+                  <div class="form-control-position">
+                    <i class="fa fa-search"></i>
+                  </div>
+                </fieldset>
+              </div>
+            </div>
+            <div class="card-content">
+              <div class="card-body">
+                <div class="table-responsive">
+                  <table class="table m-1 table-hover">
+                    <thead class="thead-dark " >
+                    <tr  >
+                      <th class="p-0 text-center">Customer</th>
+                      <th class="p-0 text-center">Pickup Date</th>
+                      <th class="p-0 text-center">Pickup Address</th>
+                      <th class="p-0 text-center">Delivery Address</th>
+                      <th class="p-0 text-center">Delivery Date</th>
+                      <th class="p-0 text-center">F/P</th>
+                      <th class="p-0 text-center">Type Eqpt</th>
+                      <th class="p-0 text-center">Rate</th>
+                      <th class="p-0 text-center">Action</th>
+                    </tr>
+                    </thead>
+                    <tbody *ngFor="let offer of data | offerSearchPipe: id | offerStatusSearchPipe: offerStatus; let idx = index">
+                    <tr (click)="selectedOfferInfo(offer)" style="cursor: pointer" [ngClass]="{'selected': selectedId == offer.id}">
+                      <td class="p-0 text-center">{{offer.customerName}}</td>
+                      <td class="p-0 text-center">{{offer.pickupDateInfo.month}}/{{offer.pickupDateInfo.day}}/{{offer.pickupDateInfo.year}}</td>
+                      <td class="p-0 text-center">{{offer.pickupAddress}}, {{offer.pickupState}}</td>
+                      <td class="p-0 text-center">{{offer.deliveryAddress}}, {{offer.deliveryState}}</td>
+                      <td class="p-0 text-center">{{offer.deliveryDateInfo.month}}/{{offer.deliveryDateInfo.day}}/{{offer.deliveryDateInfo.year}}</td>
+                      <td class="p-0 text-center"></td>
+                      <td class="p-0 text-center"></td>
+                      <td class="p-0 text-center"></td>
+                      <td>
+                        <div >
+                          <a class="danger" (click)="deleteOffer(offer)">
+                            <i class="ft-trash font-medium-3"></i>
+                          </a>
+                        </div>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <app-offer-info [data]="selectedOffer" [distance]="distance" [duration]="duration"></app-offer-info>
+    </div>
+  </div>
+</section>
